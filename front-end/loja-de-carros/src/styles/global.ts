@@ -41,139 +41,123 @@ export default createGlobalStyle`
  --color-random-12 : #30007d;
 
 
- --heading-1-700 : {
+ .heading-1-700 {
     font-size: 44px;
     font-weight:700;
     color: var(--color-grey-1)
+ };
 
- }
- --heading-2-600 : {
+ .heading-2-600 {
     font-size: 36px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-3-600 : {
+ };
+ .heading-3-600  {
     font-size: 32px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-3-500 : {
+ };
+ .heading-3-500 {
     font-size: 32px;
     font-weight:500;
     color: var(--color-grey-1)
 
- }
- --heading-4-600 : {
+ };
+ .heading-4-600  {
     font-size: 28px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-4-500 : {
+ };
+ .heading-4-500  {
     font-size: 28px;
     font-weight:500;
     color: var(--color-grey-1)
 
- }
- --heading-5-600 : {
+ };
+ .heading-5-600  {
     font-size: 24px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-5-500 : {
+ };
+ .heading-5-500  {
     font-size: 24px;
     font-weight:500;
     color: var(--color-grey-1)
 
- }
- --heading-6-600 : {
+ };
+ .heading-6-600  {
     font-size: 20px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-6-500 : {
+ };
+ .heading-6-500  {
     font-size: 20px;
     font-weight:500;
     color: var(--color-grey-1)
 
- }
- --heading-7-600 : {
+ };
+ .heading-7-600 {
     font-size: 16px;
     font-weight:600;
     color: var(--color-grey-1)
 
- }
- --heading-7-500 : {
+ };
+ .heading-7-500  {
     font-size: 16px;
     font-weight:500;
     color: var(--color-grey-1)
 
- }
+ };
 
- --body-1-400 : {
+ .body-1-400  {
     font-size: 16px;
     font-weight:400;
     color: var(--color-grey-2)
- }
- --body-1-600 : {
+ };
+
+ .body-1-600  {
     font-size: 16px;
     font-weight:600;
     color: var(--color-grey-2)
- }
- --body-2-400 : {
+ };
+ .body-2-400  {
     font-size: 14px;
     font-weight:400;
     color: var(--color-grey-2)
- }
- --body-2-500 : {
+ };
+ .body-2-500  {
     font-size: 14px;
     font-weight:500;
     color: var(--color-grey-2)
- }
- --button-big-text : {
+ };
+ .button-big-text  {
     font-size: 16px;
     font-weight:600;
     color: var(--color-grey-2)
- }
- --button-medium-text : {
+ };
+ .button-medium-text  {
     font-size: 14px;
     font-weight:600;
     color: var(--color-grey-2)
- }
- --input-placeholder : {
+ };
+ .input-placeholder  {
     font-size: 16px;
     font-weight:400;
     color: var(--color-grey-2)
- }
- --input-label :{
+ };
+
+ .input-label {
     font-size: 14px;
     font-weight:500;
     color: var(--color-grey-2)
- }
-
+ };
 
 }
-
-
-body {
-    font-family: 'Inter', sans-serif;
-    }
-
-    h1,h2,h3{
-        font-family: 'Inter', sans-serif;
-    }
-
-    p,span{
-        font-family: 'Inter', sans-serif;
-    }
-
-    button {
-        cursor: pointer;
-    }
 
 * {
     margin:0;
