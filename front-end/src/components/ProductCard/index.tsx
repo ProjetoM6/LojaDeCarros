@@ -1,6 +1,6 @@
 import ProductCardStyled, { IsActive } from "./style";
-import img from "../../asserts/carroTeste.svg";
-import imgOwner from "../../asserts/Frame.svg";
+import img from "../../assets/carroTeste.svg";
+import imgOwner from "../../assets/Frame.svg";
 import Button from "../Button/style";
 const ProductCard = () => {
   const user = { id: 1911 };
