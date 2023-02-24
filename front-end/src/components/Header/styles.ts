@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-  width: 100vw;
+  width: 100%;
   height: 80px;
   background-color: white;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
@@ -48,7 +48,7 @@ export const SideHeaderContent = styled.div`
   gap: 44px;
   align-items: center;
   justify-content: center;
-  
+
   @media (min-width: 650px) {
     border-left: 2px solid var(--color-grey-6);
     .mobileMenuIcon {

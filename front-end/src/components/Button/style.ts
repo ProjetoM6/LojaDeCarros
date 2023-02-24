@@ -15,12 +15,14 @@ const Button = styled.button<IPropsButton>`
   border-color: ${(props) => props.borderColor || "transparent"};
   border-radius: 4px;
   height: 38px;
-  width: ${(props) => props.width === "larger" ? "160px" :
-    props.width === "big"
+  width: ${(props) =>
+    props.width === "larger"
+      ? "160px"
+      : props.width === "big"
       ? "105px"
       : props.width === "medium"
       ? "80px"
-      : "auto"};
+      : props.width};
   color: ${(props) => props.color || "blue"};
   background: ${(props) => props.background || "var(--color-grey-0)"};
 
