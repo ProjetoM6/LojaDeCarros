@@ -4,8 +4,8 @@ const CarAuctionStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 450px;
+  min-width: 300px;
+  min-height: 450px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);
   border-radius: 4px 4px 0px 0px;
   position: relative;
