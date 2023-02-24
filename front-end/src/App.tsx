@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Footer from "./components/Footer";
 import CardAuction from "./components/CarAuction";
@@ -8,19 +7,69 @@ import Global from "./styles/global";
 import FormCreateAnnouncement from "./components/Forms/CreateAnnouncement";
 import "./style.css";
 import Button from "./components/Button/style";
+import ProductCard, { IProduct } from "./components/ProductCard";
+
 import imgOwner from "./assets/Frame.svg";
-import ProductCard from "./components/ProductCard";
+import img from "./assets/carroTeste.svg";
 
 function App() {
-
-  const [isOpenModal, setIsOpenModal] = useState(true)
+  const [products, setProducts] = useState<IProduct[]>([
+    {
+      Tipo: "Sell",
+      Titulo: "Ford bla bla",
+      Ano: "2020",
+      Quilometragem: "0 km",
+      Preço: "10.000",
+      Descrição: "Opcional",
+      TipoDeVeiculo: "Carro",
+      imgCapa: img,
+      firstImg: "URL DA IMAGEM",
+      isActive: true,
+      ownerId: 1911,
+      ownerName: "anunciante",
+      ownnerImg: imgOwner,
+    },
+    {
+      Tipo: "Sell",
+      Titulo: "Ford bla bla",
+      Ano: "2020",
+      Quilometragem: "0 km",
+      Preço: "10.000",
+      Descrição: "Opcional",
+      TipoDeVeiculo: "Carro",
+      imgCapa: img,
+      firstImg: "URL DA IMAGEM",
+      isActive: true,
+      ownerId: 1911,
+      ownerName: "anunciante",
+      ownnerImg: imgOwner,
+    },
+    {
+      Tipo: "Sell",
+      Titulo: "Ford bla bla",
+      Ano: "2020",
+      Quilometragem: "0 km",
+      Preço: "10.000",
+      Descrição: "Opcional",
+      TipoDeVeiculo: "Carro",
+      imgCapa: img,
+      firstImg: "URL DA IMAGEM",
+      isActive: true,
+      ownerId: 1911,
+      ownerName: "anunciante",
+      ownnerImg: imgOwner,
+    },
+  ]);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <>
       <Global />
-      { isOpenModal && <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
-        <FormCreateAnnouncement />
-      </Modal>}
+      {isOpenModal && (
+        <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
+          <FormCreateAnnouncement />
+        </Modal>
+      )}
       <AppHeader />
       <main>
         <div className="azul">
@@ -42,6 +91,7 @@ function App() {
                 color="var(--color-brand-1)"
                 width="larger"
                 hover=""
+                onClick={() => setIsOpenModal(true)}
               >
                 Criar Anuncio
               </Button>
@@ -59,13 +109,17 @@ function App() {
         <section className="ContainerAdverts">
           <h2>Carros</h2>
           <ul>
-            <ProductCard></ProductCard>
+            {products.map((product) => (
+              <ProductCard product={product} />
+            ))}
           </ul>
         </section>
         <section className="ContainerAdverts">
           <h2>Motos</h2>
           <ul>
-            <ProductCard></ProductCard>
+            {products.map((product) => (
+              <ProductCard product={product} />
+            ))}
           </ul>
         </section>
       </main>
