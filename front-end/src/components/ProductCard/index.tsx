@@ -1,29 +1,39 @@
 import ProductCardStyled, { IsActive } from "./style";
-import img from "../../assets/carroTeste.svg";
-import imgOwner from "../../assets/Frame.svg";
+
 import Button from "../Button/style";
-const ProductCard = () => {
+
+export interface IProduct {
+  Tipo: string;
+  Titulo: string;
+  Ano: string;
+  Quilometragem: string;
+  Preço: string;
+  Descrição: string;
+  TipoDeVeiculo: string;
+  imgCapa: string;
+  firstImg: string;
+  isActive: true;
+  ownerId: Number;
+  ownerName: string;
+  ownnerImg: string;
+}
+
+interface ProductProps {
+  product: IProduct;
+}
+const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const user = { id: 1911 };
-  const product = {
-    isActive: true,
-    ownerId: 1911,
-    ownerName: "anunciante",
-    ownnerImg: imgOwner,
-  };
   return (
     <ProductCardStyled>
-      <img src={img} alt="" className="imgProduct" />
+      <img src={product.imgCapa} alt="" className="imgProduct" />
       {product.ownerId === user.id && (
         <IsActive isActive={product.isActive}>
           <p>{product.isActive ? "Ativo" : "Inativo"}</p>
         </IsActive>
       )}
       <div className="ContainerFlexColumn">
-        <h2 className="heading-7-600">Product title stays here - max 1 line</h2>
-        <p className="body-2-400">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem...
-        </p>
+        <h2 className="heading-7-600">{product.Titulo}</h2>
+        <p className="body-2-400">{product.Descrição}</p>
         <div className="advertiser">
           {product.ownnerImg && (
             <img src={product.ownnerImg} className="imgAdvertiser" />
@@ -32,10 +42,10 @@ const ProductCard = () => {
         </div>
         <div className="ContainerFlexRow">
           <div className="ContainerInfoKmYear">
-            <span className="SpanInfos">0 KM</span>
-            <span className="SpanInfos">2019</span>
+            <span className="SpanInfos">{product.Quilometragem}</span>
+            <span className="SpanInfos">{product.Ano}</span>
           </div>
-          <span className="heading-7-500">R$ 0000,00</span>
+          <span className="heading-7-500">{product.Preço}</span>
         </div>
         <div className="ContainerFlexRowButtons">
           <Button
