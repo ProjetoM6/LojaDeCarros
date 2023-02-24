@@ -18,6 +18,7 @@ const FormCreateAnnouncement = () => {
     km: yup.string().required("Campo obrigatório"),
     price: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
+    typeVeichle: yup.string().required("Campo obrigatório"),
     imgCover: yup.string().required("Campo obrigatório"),
     imgGallery: yup.string().required("Campo obrigatório"),
   });
