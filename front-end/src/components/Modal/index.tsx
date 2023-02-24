@@ -1,6 +1,13 @@
 import ModalStyled from "./style";
 import { AiOutlineClose } from "react-icons/ai";
-import { Children, Dispatch, ReactNode, SetStateAction, useEffect, useRef } from "react";
+import {
+  Children,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useRef,
+} from "react";
 
 interface IModal {
   children: ReactNode;
@@ -8,14 +15,14 @@ interface IModal {
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-function Modal({children, isOpenModal, setIsOpenModal}:IModal) {
+function Modal({ children, isOpenModal, setIsOpenModal }: IModal) {
   const modalUseRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleCloseModal(event: Event) {
       const target = event.target instanceof Node ? event.target : null;
       if (target && !modalUseRef.current?.contains(target)) {
-        setIsOpenModal(!isOpenModal)
+        setIsOpenModal(!isOpenModal);
       }
     }
     document.addEventListener("mousedown", handleCloseModal);
@@ -27,11 +34,8 @@ function Modal({children, isOpenModal, setIsOpenModal}:IModal) {
 
   return (
     <ModalStyled>
-      <div ref={modalUseRef}>
-        <button
-          className="closeModal"
-          onClick={() => setIsOpenModal(false)}
-        >
+      <div ref={modalUseRef} className="modalRef">
+        <button className="closeModal" onClick={() => setIsOpenModal(false)}>
           <AiOutlineClose size={18} />
         </button>
         {children}
