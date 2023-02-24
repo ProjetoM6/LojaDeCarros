@@ -5,8 +5,8 @@ const ModalStyled = styled.div`
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  div {
-    background-color: red;
+  z-index: 9999;
+  .modalRef {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -14,7 +14,6 @@ const ModalStyled = styled.div`
     min-height: auto;
     margin: 5vh auto;
     position: relative;
-    background-color: var(--grey-2);
     border-radius: 0 0 5px 5px;
     align-items: center;
 
@@ -34,26 +33,6 @@ const ModalStyled = styled.div`
           }
         }
       }
-    }
-    .header {
-      border-radius: 5px 5px 0 0;
-    }
-    form {
-      border-radius: 0;
-      width: 90%;
-    }
-  }
-  header {
-    min-height: 5vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25px 0 25px;
-    background-color: var(--grey-2);
-    border-radius: 5px 5px 0 0;
-    h3 {
-      min-height: 100%;
-      color: var(--color-primary);
     }
   }
 `;
