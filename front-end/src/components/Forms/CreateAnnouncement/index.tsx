@@ -12,14 +12,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 const FormCreateAnnouncement = () => {
   const formSchema = yup.object().shape({
+    type: yup.string().required("Escolha uma opção"),
     title: yup.string().required("Campo obrigatório"),
-    /*     year: yup.string().required("Campo obrigatório"),
+    year: yup.string().required("Campo obrigatório"),
     km: yup.string().required("Campo obrigatório"),
     price: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
     imgCover: yup.string().required("Campo obrigatório"),
-    imgGallery: yup.string().required("Campo obrigatório"), */
-    /*     type: yup.string(), */
+    imgGallery: yup.string().required("Campo obrigatório"),
   });
 
   const {
@@ -95,11 +95,11 @@ const FormCreateAnnouncement = () => {
         <div className="DivRadio DisplayFlex">
           <label htmlFor="Type">
             Carro
-            <input type="radio" id="" name="Type" value="Car" />
+            <input type="radio" id="" value="Car" {...register("typeVeichle")} />
           </label>
           <label htmlFor="">
             Moto
-            <input type="radio" name="Type" value="Motor" />
+            <input type="radio" id="" value="Motocycle" {...register("typeVeichle")} />
           </label>
         </div>
         <label className="body-2-500">
