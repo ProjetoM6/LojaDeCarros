@@ -13,12 +13,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const FormCreateAnnouncement = () => {
   const formSchema = yup.object().shape({
     title: yup.string().required("Campo obrigatório"),
-    year: yup.string().required("Campo obrigatório"),
+    /*     year: yup.string().required("Campo obrigatório"),
     km: yup.string().required("Campo obrigatório"),
     price: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
     imgCover: yup.string().required("Campo obrigatório"),
-    imgGallery: yup.string().required("Campo obrigatório"),
+    imgGallery: yup.string().required("Campo obrigatório"), */
+    /*     type: yup.string(), */
   });
 
   const {
@@ -33,23 +34,21 @@ const FormCreateAnnouncement = () => {
 
   return (
     <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
-      <h1 className="heading-7-500">Criar anuncio</h1>
-      <h2 className="body-2-500">Tipo de anuncio</h2>
-      <FormButton>
-        <div className="radio">
-          <label htmlFor="">
-            Venda
-            <input type="radio" id="" />
-          </label>
-        </div>
-        <div className="radio">
-          <label htmlFor="">
-            Leilão
-            <input type="radio" />
-          </label>
-        </div>
-      </FormButton>
-      <FormInfo>
+      <div className="TitleForm">
+        <h1 className="heading-7-500">Criar anuncio</h1>
+        <h2 className="body-2-500">Tipo de anuncio</h2>
+      </div>
+      <div className="DivRadio">
+        <label htmlFor="Type">
+          Venda
+          <input type="radio" id="" value="Sell" {...register("type")} />
+        </label>
+        <label htmlFor="">
+          Leilão
+          <input type="radio" value="Auction" {...register("type")} />
+        </label>
+      </div>
+      <div className="DivInfo">
         <h2 className="body-2-500">Informações do veiculo</h2>
         <label className="body-2-500">
           Titulo
@@ -59,7 +58,7 @@ const FormCreateAnnouncement = () => {
             {...register("title")}
           />
         </label>
-        <NumberInfo>
+        <div className="DisplayFlex">
           <label className="body-2-500">
             Ano
             <input
@@ -80,7 +79,7 @@ const FormCreateAnnouncement = () => {
               {...register("price")}
             />
           </label>
-        </NumberInfo>
+        </div>
         <label className="body-2-500">
           Descrição
           <input
@@ -90,13 +89,19 @@ const FormCreateAnnouncement = () => {
             {...register("description")}
           />
         </label>
-      </FormInfo>
-      <h2 className="body-2-500">Tipo de veiculo</h2>
-      <FormButton>
-        <button>Carro</button>
-        <button>Moto</button>
-      </FormButton>
-      <ImgInfo>
+      </div>
+      <div className="DivInfo">
+        <h2 className="body-2-500">Tipo de veiculo</h2>
+        <div className="DivRadio DisplayFlex">
+          <label htmlFor="Type">
+            Carro
+            <input type="radio" id="" name="Type" value="Car" />
+          </label>
+          <label htmlFor="">
+            Moto
+            <input type="radio" name="Type" value="Motor" />
+          </label>
+        </div>
         <label className="body-2-500">
           Imagem da capa
           <input
@@ -113,15 +118,12 @@ const FormCreateAnnouncement = () => {
             {...register("imgGallery")}
           />
         </label>
-      </ImgInfo>
-      <FinalButton>
-        <div className="cancel">
-          <button>Cancelar</button>
-        </div>
-        <div className="create">
-          <button>Criar anúncio</button>
-        </div>
-      </FinalButton>
+      </div>
+
+      <div className="DivButtons">
+        <button>Cancelar</button>
+        <button>Criar anúncio</button>
+      </div>
     </FormStyled>
   );
 };
