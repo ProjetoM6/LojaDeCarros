@@ -46,7 +46,7 @@ const AppHeader = () => {
           <GiHamburgerMenu className="mobileMenuIcon" size={30} />
         </SideHeaderContent>
       )}
-      <DropDownMenu />
+      {/* <DropDownMenu /> */}
     </HeaderContainer>
   );
 };
