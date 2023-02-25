@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import ProfileViewUser from "../pages/ProfileViewUser";
 
-export default function Router() {
+export default function RoutesMain() {
   return (
     <Routes>
-      <Route path="/profile" element={<ProfileViewUser />} />
+      <Route path="/saleProfile" element={<ProfileViewUser />} />
     </Routes>
   );
 }
