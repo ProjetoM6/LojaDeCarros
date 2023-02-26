@@ -10,10 +10,11 @@
 
 ## EQUIPE
 
-- Daniel Carvalho
-- Raimundo Neto
-- Roberto Fernandes
-- Victor Gois
+- Marcelo Cabral Romão - (Instrutor e PO do Projeto)
+- Daniel Carvalho - (Aluno e DEV do projeto)
+- Raimundo Neto - (Aluno e DEV do projeto)
+- Roberto Fernandes - (Aluno e DEV do projeto)
+- Victor Gois - (Aluno e DEV do projeto)
 
 ## Tecnologias e ferramentas utilizadas
 
