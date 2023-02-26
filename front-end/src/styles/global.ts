@@ -133,7 +133,7 @@ export default createGlobalStyle`
  .body-2-500  {
     font-size: 14px;
     font-weight:500;
-    color: var(--color-grey-2)
+    color: var(--color-grey-1)
  };
  .button-big-text  {
     font-size: 16px;
