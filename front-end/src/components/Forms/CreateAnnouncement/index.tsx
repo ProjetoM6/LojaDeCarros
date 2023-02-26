@@ -3,7 +3,6 @@ import {
   FormButton,
   FormInfo,
   NumberInfo,
-  FinalButton,
   ImgInfo,
 } from "../style";
 import * as yup from "yup";
@@ -37,17 +36,19 @@ const FormCreateAnnouncement = () => {
     <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
       <div className="TitleForm">
         <h1 className="heading-7-500">Criar anuncio</h1>
-        <h2 className="body-2-500">Tipo de anuncio</h2>
       </div>
       <div className="DivRadio">
-        <label htmlFor="Type">
-          Venda
-          <input type="radio" id="" value="Sell" {...register("type")} />
-        </label>
-        <label htmlFor="">
-          Leilão
-          <input type="radio" value="Auction" {...register("type")} />
-        </label>
+        <h2 className="body-2-500">Tipo de anuncio</h2>
+        <div className="DisplayFlex">
+          <label htmlFor="Type">
+            Venda
+            <input type="radio" id="" value="Sell" {...register("type")} />
+          </label>
+          <label htmlFor="">
+            Leilão
+            <input type="radio" value="Auction" {...register("type")} />
+          </label>
+        </div>
       </div>
       <div className="DivInfo">
         <h2 className="body-2-500">Informações do veiculo</h2>
@@ -93,14 +94,24 @@ const FormCreateAnnouncement = () => {
       </div>
       <div className="DivInfo">
         <h2 className="body-2-500">Tipo de veiculo</h2>
-        <div className="DivRadio DisplayFlex">
+        <div className="DisplayFlex">
           <label htmlFor="Type">
             Carro
-            <input type="radio" id="" value="Car" {...register("typeVeichle")} />
+            <input
+              type="radio"
+              id=""
+              value="Car"
+              {...register("typeVeichle")}
+            />
           </label>
           <label htmlFor="">
             Moto
-            <input type="radio" id="" value="Motocycle" {...register("typeVeichle")} />
+            <input
+              type="radio"
+              id=""
+              value="Motocycle"
+              {...register("typeVeichle")}
+            />
           </label>
         </div>
         <label className="body-2-500">
@@ -120,10 +131,12 @@ const FormCreateAnnouncement = () => {
           />
         </label>
       </div>
-
+      <div className="divP body-2-400">
+        <button>Adicionar campo para imagem da galeria</button>
+      </div>
       <div className="DivButtons">
-        <button>Cancelar</button>
-        <button>Criar anúncio</button>
+        <button className="cancel">Cancelar</button>
+        <button className="create">Criar anúncio</button>
       </div>
     </FormStyled>
   );
