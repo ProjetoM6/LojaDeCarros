@@ -5,6 +5,7 @@ import { SideHeaderContent } from "./styles";
 import Button from "../Button/style";
 import { LoggedUser } from "./styles";
 import { GiHamburgerMenu } from "react-icons/gi";
+import DropDownMenu from "../DropDownMenu";
 
 const AppHeader = () => {
   const token = true;
@@ -42,9 +43,10 @@ const AppHeader = () => {
             <h2>{user.name}</h2>
           </LoggedUser>
 
-          <GiHamburgerMenu className="mobileMenuIcon" />
+          <GiHamburgerMenu className="mobileMenuIcon" size={30} />
         </SideHeaderContent>
       )}
+      {/* <DropDownMenu /> */}
     </HeaderContainer>
   );
 };
