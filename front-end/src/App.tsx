@@ -1,4 +1,4 @@
-import "./style.css";
+// import "./style.css";
 
 import RoutesMain from "./routes/Router";
 import Global from "./styles/global";

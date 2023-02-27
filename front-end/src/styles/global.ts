@@ -133,7 +133,7 @@ export default createGlobalStyle`
  .body-2-500  {
     font-size: 14px;
     font-weight:500;
-    color: var(--color-grey-2)
+    color: var(--color-grey-1)
  };
  .button-big-text  {
     font-size: 16px;
@@ -157,6 +157,7 @@ export default createGlobalStyle`
     color: var(--color-grey-2)
  };
 
+
 }
 
 * {
@@ -164,6 +165,6 @@ export default createGlobalStyle`
     padding: 0;
     outline:0;
     box-sizing: border-box;
-    }
-
+    list-style :none ;
+   }
 `;

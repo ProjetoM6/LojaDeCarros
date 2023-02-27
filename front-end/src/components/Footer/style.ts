@@ -5,8 +5,6 @@ export const Wrapper = styled.footer`
   color: var(--white-fixed);
   border: none;
   padding: 45px 4vw;
-  min-width: 99vw;
-  max-width: 81vw;
   height: 100%;
 
   display: flex;

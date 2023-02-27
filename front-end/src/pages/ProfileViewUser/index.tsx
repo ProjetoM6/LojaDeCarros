@@ -2,7 +2,7 @@ import imgOwner from "../../assets/Frame.svg";
 import AdShowcase from "../../components/AdShowcase";
 import AppHeader from "../../components/Header";
 import Footer from "../../components/Footer";
-
+import "./style.css";
 const ProfileViewUser = () => {
   return (
     <>
