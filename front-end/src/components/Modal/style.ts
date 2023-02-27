@@ -4,8 +4,9 @@ const ModalStyled = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  position: fixed;
+  position: absolute;
   z-index: 9999;
+
   .modalRef {
     display: flex;
     flex-direction: column;
@@ -14,7 +15,6 @@ const ModalStyled = styled.div`
     min-height: 100vh;
     margin: 5vh auto;
     position: relative;
-    align-items: center;
 
     .closeModal {
       height: 28px;
