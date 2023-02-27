@@ -5,11 +5,13 @@ import CardAuction from "./components/CarAuction";
 import AppHeader from "./components/Header";
 import Modal from "./components/Modal";
 import Global from "./styles/global";
-import FormCreateAnnouncement from "./components/Forms/CreateAnnouncement";
 import "./style.css";
 import Button from "./components/Button/style";
 import imgOwner from "./assets/Frame.svg";
 import ProductCard from "./components/ProductCard";
+import FormCreateAnnouncement from "./components/Forms/CreateAnnouncement";
+import FormEditAnnouncement from "./components/Forms/EditAnnouncement";
+import FormDeleteAnnouncement from "./components/Forms/DeleteAnnouncement";
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
     <>
       <Global />
       { isOpenModal && <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
-        <FormCreateAnnouncement />
+        <FormDeleteAnnouncement />
       </Modal>}
       <AppHeader />
       <main>
