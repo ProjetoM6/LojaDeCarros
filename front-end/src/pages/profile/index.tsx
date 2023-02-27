@@ -10,12 +10,12 @@ import imgOwner from "../../assets/Frame.svg";
 import ContainerProfilePage from "./style";
 
 const ProfilePage = () => {
-  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
 
   return (
     <ContainerProfilePage>
-      {isOpenModal && (
-        <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
+      {isOpenModalCreate && (
+        <Modal isOpenModal={isOpenModalCreate} setIsOpenModal={setIsOpenModalCreate}>
           <FormCreateAnnouncement />
         </Modal>
       )}
@@ -40,7 +40,7 @@ const ProfilePage = () => {
                 color="var(--color-brand-1)"
                 width="larger"
                 hover=""
-                onClick={() => setIsOpenModal(true)}
+                onClick={() => setIsOpenModalCreate(true)}
               >
                 Criar Anuncio
               </Button>
