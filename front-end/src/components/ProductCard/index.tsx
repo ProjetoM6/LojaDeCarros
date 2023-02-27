@@ -1,6 +1,9 @@
 import ProductCardStyled, { IsActive } from "./style";
 
 import Button from "../Button/style";
+import { useState } from "react";
+import FormEditAnnouncement from "../Forms/EditAnnouncement";
+import Modal from "../Modal";
 
 export interface IProduct {
   Tipo: string;
@@ -22,6 +25,8 @@ interface ProductProps {
   product: IProduct;
 }
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false);
+
   const user = { id: 1911 };
   return (
     <ProductCardStyled>
@@ -48,12 +53,18 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
           <span className="heading-7-500">{product.Preço}</span>
         </div>
         <div className="ContainerFlexRowButtons">
+        {isOpenModalEdit && (
+        <Modal isOpenModal={isOpenModalEdit} setIsOpenModal={setIsOpenModalEdit}>
+          <FormEditAnnouncement />
+        </Modal>
+      )}
           <Button
             width="medium"
             color="var(--color-grey-0)"
             background="var(--color-grey-7)"
             borderColor="var(--color-grey-0)"
             hover="var(--color-grey-6)"
+            onClick={() => setIsOpenModalEdit(true)}
           >
             Editar
           </Button>
