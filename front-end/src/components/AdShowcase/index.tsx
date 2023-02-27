@@ -9,6 +9,7 @@ interface IAdShowCase {
   title: string;
 }
 const AdShowcase = ({ type, title }: IAdShowCase) => {
+
   const [products, setProducts] = useState<IProduct[]>([
     {
       Tipo: "Sell",

@@ -1,35 +1,46 @@
-import {
-    EditFormStyled,
-  } from "../style";
-  import * as yup from "yup";
-  import { useForm } from "react-hook-form";
-  import { yupResolver } from "@hookform/resolvers/yup";
-  
-  const FormEditAnnouncement = () => {
-    const formSchema = yup.object().shape({
-      type: yup.string().required("Escolha uma opção"),
-      title: yup.string().required("Campo obrigatório"),
-      year: yup.string().required("Campo obrigatório"),
-      km: yup.string().required("Campo obrigatório"),
-      price: yup.string().required("Campo obrigatório"),
-      description: yup.string().required("Campo obrigatório"),
-      typeVeichle: yup.string().required("Campo obrigatório"),
-      published: yup.string().required("Campo obrigatório"),
-      imgCover: yup.string().required("Campo obrigatório"),
-      imgGallery: yup.string().required("Campo obrigatório"),
-    });
-  
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm({
-      resolver: yupResolver(formSchema),
-    });
-  
-    //   const onSubmitFunction = (data) => console.log(data);
-  
-    return (
+import { EditFormStyled } from "../style";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import Modal from "../../Modal";
+import FormDeleteAnnouncement from "../DeleteAnnouncement";
+
+const FormEditAnnouncement = () => {
+  const [isOpenModalDelete, setIsOpenModalDelete] = useState<boolean>(false);
+  const formSchema = yup.object().shape({
+    type: yup.string().required("Escolha uma opção"),
+    title: yup.string().required("Campo obrigatório"),
+    year: yup.string().required("Campo obrigatório"),
+    km: yup.string().required("Campo obrigatório"),
+    price: yup.string().required("Campo obrigatório"),
+    description: yup.string().required("Campo obrigatório"),
+    typeVeichle: yup.string().required("Campo obrigatório"),
+    published: yup.string().required("Campo obrigatório"),
+    imgCover: yup.string().required("Campo obrigatório"),
+    imgGallery: yup.string().required("Campo obrigatório"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formSchema),
+  });
+
+  //   const onSubmitFunction = (data) => console.log(data);
+
+  return (
+    <>
+      {isOpenModalDelete && (
+        <Modal
+          isOpenModal={isOpenModalDelete}
+          setIsOpenModal={setIsOpenModalDelete}
+        >
+          <FormDeleteAnnouncement />
+        </Modal>
+      )}
       <EditFormStyled onSubmit={handleSubmit((data) => console.log(data))}>
         <div className="TitleForm">
           <h1 className="heading-7-500">Editar anuncio</h1>
@@ -114,16 +125,26 @@ import {
           <div className="DivInfo">
             <h2 className="body-2-500">Publicado</h2>
             <div className="DisplayFlex">
-                <label htmlFor="Type">
-                    Sim
-                    <input type="radio" id="bb" value="Yes" {...register("published")} />
-                </label>
-                <label htmlFor="">
-                    Não
-                    <input type="radio" id="aa" value="No" {...register("published")} />
-                </label>
+              <label htmlFor="Type">
+                Sim
+                <input
+                  type="radio"
+                  id="bb"
+                  value="Yes"
+                  {...register("published")}
+                />
+              </label>
+              <label htmlFor="">
+                Não
+                <input
+                  type="radio"
+                  id="aa"
+                  value="No"
+                  {...register("published")}
+                />
+              </label>
             </div>
-          </div> 
+          </div>
           <label className="body-2-500">
             Imagem da capa
             <input
@@ -153,12 +174,14 @@ import {
           <button>Adicionar campo para imagem da galeria</button>
         </div>
         <div className="DivButtons">
-          <button className="delete">Excluir anúncio</button>
+          <button onClick={() => setIsOpenModalDelete(true)} className="delete">
+            Excluir anúncio
+          </button>
           <button className="edit">Editar anúncio</button>
         </div>
       </EditFormStyled>
-    );
-  };
-  
-  export default FormEditAnnouncement;
-  
+    </>
+  );
+};
+
+export default FormEditAnnouncement;
