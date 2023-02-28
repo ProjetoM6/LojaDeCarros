@@ -52,7 +52,7 @@ const CardAuction = () => {
             </Button>
           </>
         ) : (
-          <p>Acessar pagina do leião</p>
+          <p>Acessar pagina do leilão</p>
         )}
       </div>
     </CarAuctionStyled>

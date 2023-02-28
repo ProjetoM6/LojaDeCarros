@@ -4,6 +4,7 @@ import ProfileViewUser from "../pages/ProfileViewUser";
 
 import ProfilePage from "../pages/profile";
 import ViewAdPage from "../pages/viewAd";
+import Homepage from "../pages/Home";
 
 const RoutesMain = () => {
   return (
@@ -11,7 +12,7 @@ const RoutesMain = () => {
       <Route path="/" element={<ProfilePage />} />
       <Route path="/view-ad" element={<ViewAdPage />} />
       <Route path="/saleProfile" element={<ProfileViewUser />} />
-      <Route path="/teste" />
+      <Route path="/home" element={<Homepage />} />
     </Routes>
   );
 };

@@ -12,16 +12,11 @@ export const Wrapper = styled.footer`
   justify-content: space-between;
   align-items: center;
 
-  h1 {
-    font-size: 26px;
-    font-weight: 700;
-    overflow-x: clip;
-  }
-
   span {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
+    font-family: "Inter";
   }
 
   @media (max-width: 1024px) {
