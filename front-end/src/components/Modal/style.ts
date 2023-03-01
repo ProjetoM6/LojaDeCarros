@@ -12,7 +12,6 @@ const ModalStyled = styled.div`
     flex-direction: column;
     height: auto;
     max-width: 400px;
-    min-height: 100vh;
     margin: 5vh auto;
     position: relative;
 
