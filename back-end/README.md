@@ -4,42 +4,17 @@
 
 - O projeto final do curso de desenvolvimento web da Kenzie Academy Brasil consiste em uma aplicação full stack de um E-commerce de veiculos.
 
-# FULLSTACK
-
-## [FIGMA](https://www.figma.com/file/gEUjTK4ozBPNbJnqI8qZPH/M6---E-Commerce?node-id=46%3A3&t=dyFMg6cLzCzVz5lz-0)
-
-![FIGMA](./front-end/readme/Home.png)
-
-## EQUIPE
-
-- Marcelo Cabral Romão - (Instrutor e PO do Projeto)
-- Daniel Carvalho - (Aluno e DEV do projeto)
-- Raimundo Neto - (Aluno e DEV do projeto)
-- Roberto Fernandes - (Aluno e DEV do projeto)
-- Victor Gois - (Aluno e DEV do projeto)
+# Back-End
 
 ## Tecnologias e ferramentas utilizadas
 
-- React.js
 - javascript/typescript
-- vite
 - Node.js
 - Express
 - TypeOrm
 - PostgreSql
 
 ## Iniciando a aplicação
-
-#### Front-End
-
-- Por se tratar de um project react.js é necessario ter o node.js e o yarn instalados no ambiente de desenvolvimento, e seguir os passos abaixo:
-
-1. Clonar o repositorio localmente
-2. Dentro do diretorio ./front-end executar os camandos abaixo
-   - `yarn` ou `yarn install`
-   - `yarn dev`
-
-#### Back-End
 
 - Por se tratar de um projeto back-end em javaScript é necessario ter o node.js e o yarn instalados no ambiente de desenvolvimento, e seguir os passos abaixo:
 
@@ -48,7 +23,7 @@
    - `yarn` ou `yarn install`
    - `yarn dev`
 
-### Rotas
+## Rotas
 
 - Login
 
@@ -64,6 +39,13 @@
 ## Idioma do codigo
 
 - Inglês
+
+### Funções:
+
+- São declarados em variaveis
+  `const Nome () => {
+    return 
+}`
 
 ## Conventional Branchs/Commits
 
@@ -136,3 +118,11 @@
 
     Commits, Utilizado na atualização para mudanças em
     ferramentas, configurações e bibliotecas. Atualizações que não ocasionam alteração no código de produção.
+
+# EQUIPE
+
+- Marcelo Cabral Romão - (Instrutor e PO do Projeto)
+- Daniel Carvalho - (Aluno e DEV do projeto)
+- Raimundo Neto - (Aluno e DEV do projeto)
+- Roberto Fernandes - (Aluno e DEV do projeto)
+- Victor Gois - (Aluno e DEV do projeto)

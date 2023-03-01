@@ -1,29 +1,48 @@
-# Documentação do Projeto Final - React Sports
+# Motors Shop
+
+## Projeto Final do Modulo 6 - Kenzie Academy Brasil
+
+- O projeto final do curso de desenvolvimento web da Kenzie Academy Brasil consiste em uma aplicação full stack de um E-commerce de veiculos.
+
+## Front-End
+
+## [FIGMA](https://www.figma.com/file/gEUjTK4ozBPNbJnqI8qZPH/M6---E-Commerce?node-id=46%3A3&t=dyFMg6cLzCzVz5lz-0)
+
+![FIGMA](../front-end/readme/Home.png)
+
+## Tecnologias e ferramentas utilizadas
+
+- React.js
+- javascript/typescript
+- vite
+
+## Iniciando a aplicação
+
+- Por se tratar de um project react.js é necessario ter o node.js e o yarn instalados no ambiente de desenvolvimento, e seguir os passos abaixo:
+
+1. Clonar o repositorio localmente
+2. Dentro do diretorio ./front-end executar os camandos abaixo
+   - `yarn` ou `yarn install`
+   - `yarn dev`
+
+# Observações de desenvolvimento
 
 ## Idioma do codigo
 
 - Inglês
 
-## Linguagens utilizada
+### Componentes e Funções:
 
-- JavaScript/TypeScript
+- São declarados em variaveis
+  `const Nome () => {
+    return 
+}`
 
-## Biblioteca principal utilizada
+### Styled-Components
 
-- React.js
-
-## Bibliotecas secundarias utilizadas
-
-- axios
-- styled-components
-- axios
-- styled-components
-- react-toastify
-- react-router-dom
-- react-hook-form
-- framer-motion
-- react-icons
-- react-typical
+- O styled (css) deve adotar o modelo de nome ComponentStyled.
+  Caso o styled-Component seja mais complexo o modelo de nome deve segui o mesmo padrão mas sendo a descrição da função do elemento ex:
+  Card, DropMenu, Modal, HeaderModal, FormLogin, FormRegister
 
 ## Conventional Branchs/Commits
 
@@ -95,97 +114,12 @@
 ##### chore:
 
     Commits, Utilizado na atualização para mudanças em
-    ferramentas, configurações e bibliotecas.
+    ferramentas, configurações e bibliotecas. Atualizações que não ocasionam alteração no código de produção.
 
-Atualizações que não ocasionam alteração no código de produção.
+## EQUIPE
 
-## Modelo de Organização das Pastas
-
-![alt Pastas](./Doc/img/pastas.png)
-
-### src
-
-    Contém todos as pastas criadas para o projeto
-
-### src/Components
-
-    Contém somente os componentes criados para o projeto com styled-components
-      - Caso o componente tenha mais de um modelo, eles deveram
-        ser dividos em subpastas. que partilham o mesmo style
-
-### src/Contexts
-
-    Contém todos os contextos da aplicação
-
-### src/Pages
-
-    Contém as paginas da aplicação
-
-### src/Routes
-
-    Contém as definições de rotas da aplicação
-
-### src/Services
-
-    Contém as configurações do axios para requisições da api
-
-### src/Validators
-
-    Contém as validações como yup,resolver, schema
-
-### src/Style
-
-    Contém o estilo global da aplicação
-        - Variaveis
-        - Fontes
-        - Reset
-
-### src/Images
-
-    Contém imagens locais utilizadas no projeto
-
-## Estilização do codigo
-
-### Styled-Components
-
-    - O styled (css) deve adotar o modelo de nome ComponentStyle
-    (nome do componente html seguindo de Style em camelcase)
-
-    - O styled-Component deve adotar o nome do elemento html com a
-    primeira letra MAIUSCULA, Ex: Input, Button, Ul, Li.
-    Caso o styled-Component seja mais complexo como o exemplo abaixo:
-
-    _< li >_
-    ..._< div >_
-    ......_< h1 > Loren < / h1>_
-    ......_< span > Ipsun </ span>_
-    ..._</ div >_
-    ..._< div >_
-    ......_< img />_
-    ..._</ div>_
-    _< /li >_
-
-    o modelo de nome deve segui o mesmo mas sendo a descrição da função do elemento ex:
-    Card, DropMenu, Modal, HeaderModal, FormLogin, FormRegister
-
-### Componentes
-
-    Devem ser variaveis
-    const Nome () =>{
-        return
-    }
-
-### Funções
-
-    Devem ser variaveis
-
-### Formatação do codigo
-
-    Espaços devem ser evitados pois deixam um codigo pequeno, extenso e cansativo de ler
-
-    decidir o uso de "" e '' em daily
-
-### Estrutura do html
-
-    Uma <Div /> não é uma tag semantica, ela é apenas para estilização de algo em especifico,
-    não devendo ser utilizada sem a devida necessidade
+- Marcelo Cabral Romão - (Instrutor e PO do Projeto)
+- Daniel Carvalho - (Aluno e DEV do projeto)
+- Raimundo Neto - (Aluno e DEV do projeto)
+- Roberto Fernandes - (Aluno e DEV do projeto)
+- Victor Gois - (Aluno e DEV do projeto)
