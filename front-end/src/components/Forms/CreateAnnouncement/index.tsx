@@ -119,7 +119,6 @@ const FormCreateAnnouncement = () => {
         hover="var(--color-brand-1)"
         width="300px"
         colorHover="var(--white-fixed)"
-        className="div body-2-400"
       >
         Adicionar campo para imagem da galeria
       </Button>
