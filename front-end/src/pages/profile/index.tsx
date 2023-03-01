@@ -8,6 +8,7 @@ import AppHeader from "../../components/Header";
 import Modal from "../../components/Modal";
 import imgOwner from "../../assets/Frame.svg";
 import ContainerProfilePage from "./style";
+import AuctionShowcase from "../../components/AuctionShowcase";
 
 const ProfilePage = () => {
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
@@ -15,7 +16,10 @@ const ProfilePage = () => {
   return (
     <ContainerProfilePage>
       {isOpenModalCreate && (
-        <Modal isOpenModal={isOpenModalCreate} setIsOpenModal={setIsOpenModalCreate}>
+        <Modal
+          isOpenModal={isOpenModalCreate}
+          setIsOpenModal={setIsOpenModalCreate}
+        >
           <FormCreateAnnouncement />
         </Modal>
       )}
@@ -39,7 +43,8 @@ const ProfilePage = () => {
                 borderColor="var(--color-brand-1)"
                 color="var(--color-brand-1)"
                 width="larger"
-                hover=""
+                hover="var(--color-brand-1)"
+                colorHover="var(--white-fixed)"
                 onClick={() => setIsOpenModalCreate(true)}
               >
                 Criar Anuncio
@@ -48,13 +53,7 @@ const ProfilePage = () => {
           </section>
         </div>
 
-        <section className="ContainerAuction">
-          <h2 className="TitleAuction">Leilão</h2>
-          <ul className="UlAuction">
-            <CardAuction />
-            <CardAuction />
-          </ul>
-        </section>
+        <AuctionShowcase />
 
         <AdShowcase type="carro" title="Carros"></AdShowcase>
         <AdShowcase type="moto" title="Motos"></AdShowcase>

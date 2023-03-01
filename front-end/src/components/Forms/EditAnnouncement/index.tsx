@@ -1,10 +1,14 @@
-import { EditFormStyled } from "../style";
+import { FormStyled } from "../style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import Modal from "../../Modal";
 import FormDeleteAnnouncement from "../DeleteAnnouncement";
+import InputRadio from "../../InputRadio";
+import Input from "../../Input";
+import { LabelStyled } from "../../Input/style";
+import Button from "../../Button/style";
 
 const FormEditAnnouncement = () => {
   const [isOpenModalDelete, setIsOpenModalDelete] = useState<boolean>(false);
@@ -41,145 +45,134 @@ const FormEditAnnouncement = () => {
           <FormDeleteAnnouncement />
         </Modal>
       )}
-      <EditFormStyled onSubmit={handleSubmit((data) => console.log(data))}>
-        <div className="TitleForm">
-          <h1 className="heading-7-500">Editar anuncio</h1>
+      <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
+        <h1 className="heading-7-500 title">Criar anuncio</h1>
+        <h2 className="body-2-500 subTitle">Tipo de anuncio</h2>
+        <div className="divInputRadio">
+          <InputRadio
+            value={"sell"}
+            name={"type"}
+            register={register}
+            txt={"Sell"}
+          />
+          <InputRadio
+            value={"auction"}
+            name={"type"}
+            register={register}
+            txt={"Auction"}
+          />
         </div>
-        <div className="DivRadio">
-          <h2 className="body-2-500">Tipo de anuncio</h2>
-          <div className="DisplayFlex">
-            <label htmlFor="Type">
-              Venda
-              <input type="radio" id="" value="Sell" {...register("type")} />
-            </label>
-            <label htmlFor="">
-              Leilão
-              <input type="radio" value="Auction" {...register("type")} />
-            </label>
-          </div>
+        <h2 className="body-2-500 subTitle">Informações do veiculo</h2>
+        <Input
+          label="Titulo"
+          name="title"
+          placeholder="Digitar titulo"
+          register={register}
+        />
+        <div className="DisplayFlex">
+          <Input
+            label="Ano"
+            name="year"
+            placeholder="Digitar ano"
+            register={register}
+            type={"number"}
+          />
+          <Input
+            label="Quilometragem"
+            name="km"
+            placeholder="0 Km"
+            register={register}
+            type={"number"}
+          />
+          <Input
+            label="Preço"
+            name="price"
+            placeholder="Digitar o preço"
+            register={register}
+            type={"number"}
+          />
         </div>
-        <div className="DivInfo">
-          <h2 className="body-2-500">Informações do veiculo</h2>
-          <label className="body-2-500">
-            Titulo
-            <input
-              type="text"
-              placeholder="Digitar titulo"
-              {...register("title")}
-            />
-          </label>
-          <div className="DisplayFlex">
-            <label className="body-2-500">
-              Ano
-              <input
-                type="number"
-                placeholder="Digitar ano"
-                {...register("year")}
-              />
-            </label>
-            <label className="body-2-500">
-              Quilometragem
-              <input type="number" placeholder="0" {...register("km")} />
-            </label>
-            <label className="body-2-500">
-              Preço
-              <input
-                type="text"
-                placeholder="Digitar preço"
-                {...register("price")}
-              />
-            </label>
-          </div>
-          <label className="body-2-500">
-            Descrição
-            <input
-              className="description"
-              type="text"
-              placeholder="Digitar descrição"
-              {...register("description")}
-            />
-          </label>
+        <LabelStyled className="body-2-500">
+          Descrição
+          <textarea
+            className="description"
+            placeholder="Digitar descrição"
+            {...register("description")}
+          />
+        </LabelStyled>
+        <h2 className="body-2-500 subTitle">Tipo de veiculo</h2>
+        <div className="divInputRadio">
+          <InputRadio
+            value={"car"}
+            register={register}
+            name={"typeVeichle"}
+            txt={"Carro"}
+          />
+          <InputRadio
+            value={"motocycle"}
+            register={register}
+            name={"typeVeichle"}
+            txt={"Moto"}
+          />
         </div>
-        <div className="DivInfo">
-          <h2 className="body-2-500">Tipo de veiculo</h2>
-          <div className="DisplayFlex">
-            <label htmlFor="Type">
-              Carro
-              <input
-                type="radio"
-                id=""
-                value="Car"
-                {...register("typeVeichle")}
-              />
-            </label>
-            <label htmlFor="">
-              Moto
-              <input
-                type="radio"
-                id=""
-                value="Motocycle"
-                {...register("typeVeichle")}
-              />
-            </label>
-          </div>
-          <div className="DivInfo">
-            <h2 className="body-2-500">Publicado</h2>
-            <div className="DisplayFlex">
-              <label htmlFor="Type">
-                Sim
-                <input
-                  type="radio"
-                  id="bb"
-                  value="Yes"
-                  {...register("published")}
-                />
-              </label>
-              <label htmlFor="">
-                Não
-                <input
-                  type="radio"
-                  id="aa"
-                  value="No"
-                  {...register("published")}
-                />
-              </label>
-            </div>
-          </div>
-          <label className="body-2-500">
-            Imagem da capa
-            <input
-              type="text"
-              placeholder="Inserir URL da imagem"
-              {...register("imgCover")}
-            />
-          </label>
-          <label className="body-2-500">
-            1ª Imagem da galeria
-            <input
-              type="text"
-              placeholder="Inserir URL da imagem"
-              {...register("imgGallery")}
-            />
-          </label>
-          <label className="body-2-500">
-            2ª Imagem da galeria
-            <input
-              type="text"
-              placeholder="Inserir URL da imagem"
-              {...register("imgGallery")}
-            />
-          </label>
+        <h2 className="body-2-500 subTitle">Publicado</h2>
+        <div className="divInputRadio">
+          <InputRadio
+            value={"yes"}
+            register={register}
+            name={"published"}
+            txt={"Sim"}
+          />
+          <InputRadio
+            value={"no"}
+            register={register}
+            name={"published"}
+            txt={"Não"}
+          />
         </div>
-        <div className="divP body-2-400">
-          <button>Adicionar campo para imagem da galeria</button>
-        </div>
-        <div className="DivButtons">
-          <button onClick={() => setIsOpenModalDelete(true)} className="delete">
+        <Input
+          label="Imagem da capa"
+          name="imgCover"
+          placeholder="Inserir URL da imagem"
+          register={register}
+        />
+        <Input
+          label="1ª Imagem da galeria"
+          name="imgGallery"
+          placeholder="Inserir URL da imagem"
+          register={register}
+        />
+        <Button
+          background="var(--color-brand-4)"
+          color="var(--color-brand-1)"
+          hover="var(--color-brand-1)"
+          width="300px"
+          colorHover="var(--white-fixed)"
+        >
+          Adicionar campo para imagem da galeria
+        </Button>
+        <div className="DivButtonsEdit">
+          <Button
+            background="var(--color-grey-6)"
+            color="var(--color-grey-2)"
+            hover="var(--color-alert-1)"
+            colorHover="var(--white-fixed)"
+            width="larger"
+            onClick={() => setIsOpenModalDelete(true)}
+          >
             Excluir anúncio
-          </button>
-          <button className="edit">Editar anúncio</button>
+          </Button>
+          <Button
+            background="var(--color-brand-3)"
+            color="var(--color-grey-6)"
+            hover="var(--color-brand-1)"
+            colorHover="var(--white-fixed)"
+            width="larger"
+          >
+            Editar anúncio
+          </Button>
         </div>
-      </EditFormStyled>
+      </FormStyled>
     </>
   );
 };

@@ -5,7 +5,8 @@ const CarAuctionStyled = styled.div`
   flex-direction: column;
   align-items: center;
   min-width: 300px;
-  min-height: 450px;
+  max-width: 600px;
+  min-height: 400px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);
   border-radius: 4px 4px 0px 0px;
   position: relative;
@@ -67,8 +68,59 @@ const CarAuctionStyled = styled.div`
     position: absolute;
     bottom: 0;
   }
-
   .whiteFixed {
+  }
+
+  @media (min-width: 768px) {
+    /*     width: 450px; */
+    .bodyAuction {
+      .imgCarAuction {
+      }
+      .ContainerFlexRow {
+      }
+
+      .ContainerFlexColumn {
+        h2 {
+        }
+        .description {
+        }
+      }
+
+      .ContainerInfoKmYearCarAuction {
+        .SpanInfosCarAuction {
+        }
+      }
+    }
+    .ContainerFooterAuction {
+    }
+
+    .whiteFixed {
+    }
+  }
+  @media (min-width: 1024px) {
+    .bodyAuction {
+      .imgCarAuction {
+      }
+      .ContainerFlexRow {
+      }
+
+      .ContainerFlexColumn {
+        h2 {
+        }
+        .description {
+        }
+      }
+
+      .ContainerInfoKmYearCarAuction {
+        .SpanInfosCarAuction {
+        }
+      }
+    }
+    .ContainerFooterAuction {
+    }
+
+    .whiteFixed {
+    }
   }
 `;
 
