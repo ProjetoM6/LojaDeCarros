@@ -11,7 +11,7 @@ const ContainerProfilePage = styled.div`
     background-color: var(--color-brand-1);
   }
 
-  .container{
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,23 +20,23 @@ const ContainerProfilePage = styled.div`
     left: 300px;
     top: 60px;
 
-    h2{
+    h2 {
       font-family: "Lexend";
       color: var(--white-fixed);
       text-align: center;
     }
 
-    p{
+    p {
       font-family: "Inter";
       color: var(--white-fixed);
       margin: 20px 0;
     }
   }
 
-  .divButton{
+  .divButton {
     display: flex;
 
-    button{
+    button {
       font-family: "Inter";
       background-color: var(--color-brand-1);
       color: var(--white-fixed);
@@ -48,25 +48,11 @@ const ContainerProfilePage = styled.div`
       cursor: pointer;
     }
 
-    button:hover{
+    button:hover {
       font-size: 14px;
       border: white 1px solid;
     }
   }
-
-  .ContainerAuction {
-    width: 90%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin: 0vh auto;
-  }
-
-  .TitleAuction {
-    display: flex;
-    font-family: "Lexend";
-  }
-
   .ContainerAdverts {
     margin: 20vh auto;
     width: 90%;
@@ -74,44 +60,36 @@ const ContainerProfilePage = styled.div`
     display: flex;
     flex-direction: column;
   }
-  .UlAuction {
-    display: flex;
-    width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
-    gap: 20px;
-  }
 
   @media (max-width: 768px) {
-
-    .azul{
+    .azul {
       margin: 0;
     }
 
-    .container{
+    .container {
       width: 85%;
       position: absolute;
       left: 30px;
       top: 30px;
       margin: 0 auto;
 
-      h2{
+      h2 {
         font-size: 32px;
         text-align: center;
       }
 
-      p{
+      p {
         font-size: 14px;
         text-align: center;
       }
     }
 
-    .divButton{
+    .divButton {
       display: flex;
       flex-direction: column;
       width: 100%;
 
-      button{
+      button {
         margin: 4px 0;
         width: 100%;
       }
@@ -122,10 +100,6 @@ const ContainerProfilePage = styled.div`
     .ContainerUser {
       max-width: 70vw;
       left: 15%;
-    }
-
-    .TitleAuction {
-      display: block;
     }
   }
 `;
