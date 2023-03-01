@@ -1,7 +1,6 @@
 import { useState } from "react";
 import AdShowcase from "../../components/AdShowcase";
 import Button from "../../components/Button/style";
-import CardAuction from "../../components/CarAuction";
 import Footer from "../../components/Footer";
 import FormCreateAnnouncement from "../../components/Forms/CreateAnnouncement";
 import AppHeader from "../../components/Header";
@@ -52,9 +51,7 @@ const ProfilePage = () => {
             </div>
           </section>
         </div>
-
         <AuctionShowcase />
-
         <AdShowcase type="carro" title="Carros"></AdShowcase>
         <AdShowcase type="moto" title="Motos"></AdShowcase>
       </main>
