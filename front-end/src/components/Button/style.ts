@@ -5,6 +5,7 @@ interface IPropsButton {
   background: string;
   borderColor?: string;
   hover: string;
+  colorHover?: string;
 }
 const Button = styled.button<IPropsButton>`
   display: flex;
@@ -27,6 +28,7 @@ const Button = styled.button<IPropsButton>`
   background: ${(props) => props.background || "var(--color-grey-0)"};
 
   &:hover {
+    color: ${(props) => props.colorHover};
     background-color: ${(props) => props.hover};
     cursor: pointer;
   }
