@@ -44,18 +44,6 @@ const ContainerProfilePage = styled.div`
     display: flex;
   }
 
-  .ContainerAuction {
-    width: 90%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin: 0vh auto;
-  }
-
-  .TitleAuction {
-    display: none;
-  }
-
   .ContainerAdverts {
     margin: 20vh auto;
     width: 90%;
@@ -63,22 +51,11 @@ const ContainerProfilePage = styled.div`
     display: flex;
     flex-direction: column;
   }
-  .UlAuction {
-    display: flex;
-    width: 100%;
-    margin: 0 auto;
-    overflow-x: auto;
-    gap: 20px;
-  }
 
   @media (min-width: 1024px) {
     .ContainerUser {
       max-width: 70vw;
       left: 15%;
-    }
-
-    .TitleAuction {
-      display: block;
     }
   }
 `;
