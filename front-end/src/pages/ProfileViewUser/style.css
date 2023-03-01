@@ -48,7 +48,7 @@ main {
   margin: 0vh auto;
 }
 
-.TitleAuction {
+.titleAuction {
   display: none;
 }
 
@@ -59,13 +59,6 @@ main {
   display: flex;
   flex-direction: column;
 }
-.UlAuction {
-  display: flex;
-  width: 100%;
-  margin: 0 auto;
-  overflow-x: auto;
-  gap: 20px;
-}
 
 @media (min-width: 1024px) {
   .ContainerUser {
@@ -73,7 +66,7 @@ main {
     left: 15%;
   }
 
-  .TitleAuction {
+  .titleAuction {
     display: block;
   }
 }
