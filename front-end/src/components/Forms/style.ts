@@ -8,6 +8,7 @@ export const FormStyled = styled.form`
   padding: 20px;
   gap: 8px;
   border-radius: 8px;
+  background-color: var(--white-fixed);
 
   .title {
     margin: 6px 0;
