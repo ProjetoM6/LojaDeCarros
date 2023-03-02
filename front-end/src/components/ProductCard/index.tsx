@@ -1,33 +1,17 @@
 import ProductCardStyled, { IsActive } from "./style";
-
 import Button from "../Button/style";
 import { useState } from "react";
 import FormEditAnnouncement from "../Forms/EditAnnouncement";
 import Modal from "../Modal";
-
-export interface IProduct {
-  Tipo: string;
-  Titulo: string;
-  Ano: string;
-  Quilometragem: string;
-  Preço: string;
-  Descrição: string;
-  TipoDeVeiculo: string;
-  imgCapa: string;
-  firstImg: string;
-  isActive: true;
-  ownerId: Number;
-  ownerName: string;
-  ownnerImg: string;
-}
+import { IAnnouncement } from "../../context/interfaces";
 
 interface ProductProps {
-  product: IProduct;
+  product: IAnnouncement;
 }
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false);
 
-  const user = { id: 1911 };
+  const user = { id: "1911" };
   return (
     <>
       {isOpenModalEdit && (
@@ -39,15 +23,15 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         </Modal>
       )}
       <ProductCardStyled>
-        <img src={product.imgCapa} alt="" className="imgProduct" />
+        <img src={product.img_cover} alt="" className="imgProduct" />
         {product.ownerId === user.id && (
           <IsActive isActive={product.isActive}>
             <p>{product.isActive ? "Ativo" : "Inativo"}</p>
           </IsActive>
         )}
         <div className="ContainerFlexColumn">
-          <h2 className="heading-7-600">{product.Titulo}</h2>
-          <p className="body-2-400">{product.Descrição}</p>
+          <h2 className="heading-7-600">{product.title}</h2>
+          <p className="body-2-400">{product.description}</p>
           <div className="advertiser">
             {product.ownnerImg && (
               <img src={product.ownnerImg} className="imgAdvertiser" />
@@ -56,10 +40,10 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
           </div>
           <div className="ContainerFlexRow">
             <div className="ContainerInfoKmYear">
-              <span className="SpanInfos">{product.Quilometragem}</span>
-              <span className="SpanInfos">{product.Ano}</span>
+              <span className="SpanInfos">{product.km}</span>
+              <span className="SpanInfos">{product.year}</span>
             </div>
-            <span className="heading-7-500">{product.Preço}</span>
+            <span className="heading-7-500">{product.price}</span>
           </div>
           <div className="ContainerFlexRowButtons">
             <Button
