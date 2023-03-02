@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AdShowcase from "../../components/AdShowcase";
 import Button from "../../components/Button/style";
 import Footer from "../../components/Footer";
@@ -8,8 +8,10 @@ import Modal from "../../components/Modal";
 import imgOwner from "../../assets/Frame.svg";
 import ContainerProfilePage from "./style";
 import AuctionShowcase from "../../components/AuctionShowcase";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProfilePage = () => {
+  const { user } = useContext(AuthContext);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
 
   return (
@@ -29,14 +31,10 @@ const ProfilePage = () => {
             <div className="ContainerInfos">
               <img src={imgOwner} className="ImgUser" />
               <div className="TypeUser">
-                <h2>User usuario</h2>
-                <span>tipo de user</span>
+                <h2>{user?.name}</h2>
+                <span>{user?.type}</span>
               </div>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
-              </p>
+              <p>{user?.description}</p>
               <Button
                 background="var(--color-grey-10)"
                 borderColor="var(--color-brand-1)"
@@ -52,8 +50,16 @@ const ProfilePage = () => {
           </section>
         </div>
         <AuctionShowcase />
-        <AdShowcase type="carro" title="Carros"></AdShowcase>
-        <AdShowcase type="moto" title="Motos"></AdShowcase>
+        <AdShowcase
+          type="carro"
+          title="Carros"
+          announcements={user?.announcement}
+        ></AdShowcase>
+        <AdShowcase
+          type="moto"
+          title="Motos"
+          announcements={user?.announcement}
+        ></AdShowcase>
       </main>
       <Footer />
     </ContainerProfilePage>
