@@ -8,7 +8,7 @@ const createUserService = async ({
   email,
   cpf,
   phone,
-  data_of_birth,
+  date_of_birth,
   type,
   password,
 }: any) => {
@@ -27,7 +27,7 @@ const createUserService = async ({
   user.phone = phone;
   user.createdAt = Date();
   user.cpf = cpf;
-  user.date_of_birth = data_of_birth;
+  user.date_of_birth = date_of_birth;
   user.type = type;
 
   userRepository.create(user);
