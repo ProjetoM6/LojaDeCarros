@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { User } from "./user.entity";
 
 @Entity()
 export class Announcement {
@@ -26,6 +27,9 @@ export class Announcement {
 
   @Column()
   img_cover: string;
+
+  @ManyToOne(() => User, (user) => user.announcement)
+  user: User;
 
   @Column()
   createdAt: string;
