@@ -20,7 +20,7 @@ const FormRegister = () => {
     street: yup.string().required("Rua obrigatória"),
     number: yup.string().required("Numero obrigatório"),
     complement: yup.string().required("Complemento obrigatório"),
-    typeCount: yup.string().required("Tipo de conta obrigatório"),
+    typeAccount: yup.string().required("Tipo de conta obrigatório"),
     password: yup
       .string()
       .matches(
@@ -140,14 +140,14 @@ const FormRegister = () => {
       />
       <div className="divRadio">
         <InputRadio
-          name="typeCount"
-          value="Buyer"
+          name="typeAccount"
+          value="buyer"
           register={register}
           txt={"Comprador"}
         />
         <InputRadio
-          name="typeCount"
-          value="Seller"
+          name="typeAccount"
+          value="seller"
           register={register}
           txt={"Anunciante"}
         />
