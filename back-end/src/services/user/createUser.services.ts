@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import AppDataSource from "../../data-source";
 import { User } from "../../entities/user.entity";
+import { AppError } from "../../errors/appError";
 
 const createUserService = async ({
   name,
@@ -16,7 +17,7 @@ const createUserService = async ({
   const emailAlreadyExists = await userRepository.findOneBy({ email: email });
 
   if (emailAlreadyExists) {
-    throw new Error("User already exists");
+    throw new AppError(400, "User already exists");
   }
 
   const user = new User();
