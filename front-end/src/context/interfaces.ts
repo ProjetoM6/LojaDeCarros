@@ -9,7 +9,7 @@ export interface IUser {
   date_of_birth: string;
   type: string;
   description?: string;
-  announcement?: IAnnouncement[] | [] | undefined;
+  announcement: IAnnouncement[] | [];
 }
 
 export interface IAnnouncement {
@@ -27,14 +27,4 @@ export interface IAnnouncement {
   ownerId: string;
   ownerName: string;
   ownnerImg: string;
-
-  /*   Tipo: string;
-  Titulo: string;
-  Ano: string;
-  Quilometragem: string;
-  Preço: string;
-  Descrição: string;
-  TipoDeVeiculo: string;
-  imgCapa: string;
-  firstImg: string; */
 }
