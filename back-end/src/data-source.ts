@@ -1,9 +1,9 @@
 import { DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
-// import { Contact } from "./entities/contacts.entity";
-import { initialMigration1677779259849 } from "./migrations/1677779259849-initialMigration";
-import { createTables1677779264357 } from "./migrations/1677779264357-createTables";
+import { initialMigration1677796330070 } from "./migrations/1677796330070-initialMigration";
+import { createTables1677796375601 } from "./migrations/1677796375601-createTables";
+import { Announcement } from "./entities/announcement.entity";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -24,9 +24,9 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         //colocar as entities importadas aqui
-        entities: [User],
+        entities: [User, Announcement],
         //colocar o arquivo gerado pós migration e depois dar run
-        migrations: [initialMigration1677779259849, createTables1677779264357],
+        migrations: [initialMigration1677796330070, createTables1677796375601],
       }
 );
 

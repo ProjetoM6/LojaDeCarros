@@ -11,7 +11,7 @@ interface IAdShowCase {
   announcements: IAnnouncement[] | [] | undefined;
 }
 const AdShowcase = ({ type, title, announcements }: IAdShowCase) => {
-  const [products, setProducts] = useState<IAnnouncement[]>([
+  announcements = [
     {
       id: "123123g1123gg",
       type: "sell",
@@ -44,12 +44,12 @@ const AdShowcase = ({ type, title, announcements }: IAdShowCase) => {
       ownerName: "anuncianteTeste",
       ownnerImg: imgOwner,
     },
-  ]);
+  ];
   return (
     <AdShowcaseStyled>
       <h2 className="TypeOfAd">{title}</h2>
       <ul className="UlAd">
-        {products.map(
+        {announcements.map(
           (product: IAnnouncement) =>
             product.type_vehicle === type && (
               <ProductCard product={product} key={product.id} />
