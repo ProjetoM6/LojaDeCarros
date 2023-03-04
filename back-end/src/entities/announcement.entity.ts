@@ -1,4 +1,10 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  ManyToOne,
+  CreateDateColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./user.entity";
 
@@ -23,6 +29,9 @@ export class Announcement {
   price: string;
 
   @Column()
+  description: string;
+
+  @Column()
   type_vehicle: string;
 
   @Column()
@@ -31,8 +40,8 @@ export class Announcement {
   @ManyToOne(() => User, (user) => user.announcement)
   user: User;
 
-  @Column()
-  createdAt: string;
+  @CreateDateColumn()
+  createdAt: Date;
 
   constructor() {
     if (!this.id) {
