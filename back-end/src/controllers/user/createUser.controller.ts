@@ -1,20 +1,12 @@
 import { Request, Response } from "express";
+import { ICreateUser } from "../../interfaces/user";
 import createUserService from "../../services/user/createUser.services";
 
 const createUserController = async (request: Request, response: Response) => {
-  const { name, email, cpf, phone, date_of_birth, type, password } =
-    request.body;
+  const userRequest: ICreateUser = request.body;
 
-  const user = await createUserService({
-    name,
-    email,
-    cpf,
-    phone,
-    date_of_birth,
-    type,
-    password,
-  });
-  return response.status(201).json(user);
+  const userCreated = await createUserService(userRequest);
+  return response.status(201).json(userCreated);
 };
 
 export default createUserController;

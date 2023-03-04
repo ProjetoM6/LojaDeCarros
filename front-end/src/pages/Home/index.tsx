@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AdShowcase from "../../components/AdShowcase";
 import AuctionShowcase from "../../components/AuctionShowcase";
-import CardAuction from "../../components/CarAuction";
 import Footer from "../../components/Footer";
 import FormCreateAnnouncement from "../../components/Forms/CreateAnnouncement";
 import AppHeader from "../../components/Header";
 import Modal from "../../components/Modal";
+import { AuthContext } from "../../context/AuthContext";
 import ContainerProfilePage from "./style";
 
 const Homepage = () => {
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   return (
     <ContainerProfilePage>
@@ -40,8 +42,8 @@ const Homepage = () => {
 
         <AuctionShowcase />
 
-        <AdShowcase type="carro" title="Carros"></AdShowcase>
-        <AdShowcase type="moto" title="Motos"></AdShowcase>
+        <AdShowcase type="carro" title="Carros" announcements={[]}></AdShowcase>
+        <AdShowcase type="moto" title="Motos" announcements={[]}></AdShowcase>
       </main>
       <Footer />
     </ContainerProfilePage>

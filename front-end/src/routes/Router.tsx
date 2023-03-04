@@ -11,12 +11,12 @@ import Login from "../pages/Login";
 const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="/" element={<ProfilePage />} />
-      <Route path="/view-ad" element={<ViewAdPage />} />
-      <Route path="/saleProfile" element={<ProfileViewUser />} />
-      <Route path="/home" element={<Homepage />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/saleProfile" element={<ProfileViewUser />} />
+      <Route path="/view-ad" element={<ViewAdPage />} />
     </Routes>
   );
 };

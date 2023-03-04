@@ -1,32 +1,25 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
+import { FieldValues } from "react-hook-form/dist/types";
+import { FormStyled } from "../style";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
+import schemaLogin from "../../../validators/schemaLogin";
 import Button from "../../Button/style";
 import Input from "../../Input";
-import { FormStyled } from "../style";
 
 const FormLogin = () => {
-  const formSchema = yup.object().shape({
-    email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
-    password: yup
-      .string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
-        "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
-      )
-      .required("Senha obrigatória"),
-  });
-
+  const { requestLogin, navigate } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(formSchema),
+  } = useForm<FieldValues>({
+    resolver: yupResolver(schemaLogin),
   });
 
   return (
-    <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
+    <FormStyled onSubmit={handleSubmit(requestLogin)}>
       <h1>Login</h1>
       <Input
         label="Usuário"
@@ -39,6 +32,8 @@ const FormLogin = () => {
         label="Senha"
         placeholder="Digitar sua senha"
         name="password"
+        type="password"
+        autoComplete="false"
         register={register}
       />
       {/*  {errors.senha && <span>{errors.senha.message}</span>} */}
@@ -57,6 +52,7 @@ const FormLogin = () => {
         color="var(--white-fixed)"
         width="100%"
         hover="var(--color-brand-2)"
+        onClick={() => navigate("/register")}
       >
         Cadastrar
       </Button>

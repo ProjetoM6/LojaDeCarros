@@ -6,32 +6,32 @@ import Button from "../Button/style";
 import { LoggedUser } from "./styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import DropDownMenu from "../DropDownMenu";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const AppHeader = () => {
-  const token = true;
-  const user = {
-    name: "Raimundo",
-    img: "https://i.stack.imgur.com/YaL3s.jpg",
-  };
+  const { user, navigate } = useContext(AuthContext);
+
   return (
     <HeaderContainer>
       <MainHeaderContent>
-        <img src={logo} alt="Motors Shop Logo" />
+        <img src={logo} alt="Motors Shop Logo" onClick={() => navigate("/")} />
         <nav>
           <a href="#">Carros</a>
           <a href="#">Motos</a>
           <a href="#">Leilão</a>
         </nav>
       </MainHeaderContent>
-      {!token ? (
+      {!user ? (
         <SideHeaderContent>
-          <a href="#">Fazer Login</a>
+          <a href="login">Fazer Login</a>
           <Button
             width="big"
             color="var(--color-grey-2)"
             background="var(--white-fixed)"
             hover="var(--color-grey-7)"
             borderColor="var(--color-grey-6)"
+            onClick={() => navigate("/register")}
           >
             Cadastrar
           </Button>
@@ -39,8 +39,8 @@ const AppHeader = () => {
       ) : (
         <SideHeaderContent>
           <LoggedUser>
-            <img src={user.img} alt="" />
-            <h2>{user.name}</h2>
+            <img src={""} alt="" />
+            <h2>{user?.name}</h2>
           </LoggedUser>
 
           <GiHamburgerMenu className="mobileMenuIcon" size={30} />
