@@ -2,7 +2,8 @@ import { DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { initialMigration1677796330070 } from "./migrations/1677796330070-initialMigration";
-import { createTables1677796375601 } from "./migrations/1677796375601-createTables";
+import { createTables1677810362603 } from "./migrations/1677810362603-createTables";
+/* import { createTables1677810232976 } from "./migrations/1677810232976-createTables"; */
 import { Announcement } from "./entities/announcement.entity";
 
 const AppDataSource = new DataSource(
@@ -26,7 +27,7 @@ const AppDataSource = new DataSource(
         //colocar as entities importadas aqui
         entities: [User, Announcement],
         //colocar o arquivo gerado pós migration e depois dar run
-        migrations: [initialMigration1677796330070, createTables1677796375601],
+        migrations: [initialMigration1677796330070, createTables1677810362603],
       }
 );
 
