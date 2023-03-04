@@ -16,8 +16,8 @@ const FormCreateAnnouncement = () => {
     price: yup.string().required("Campo obrigatório"),
     description: yup.string().required("Campo obrigatório"),
     typeVeichle: yup.string().required("Campo obrigatório"),
-    imgCover: yup.string().required("Campo obrigatório"),
-    imgGallery: yup.string().required("Campo obrigatório"),
+    img_Cover: yup.string().required("Campo obrigatório"),
+    img_Gallery: yup.string().required("Campo obrigatório"),
   });
 
   const {
