@@ -6,12 +6,12 @@ import Button from "../Button/style";
 import { LoggedUser } from "./styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import DropDownMenu from "../DropDownMenu";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const AppHeader = () => {
   const { user, navigate } = useContext(AuthContext);
-
+  const [openDropDown, setOpenDropDown] = useState(false);
   return (
     <HeaderContainer>
       <MainHeaderContent>
@@ -22,7 +22,7 @@ const AppHeader = () => {
           <a href="#">Leilão</a>
         </nav>
       </MainHeaderContent>
-      {!user ? (
+      {user ? (
         <SideHeaderContent>
           <a href="login">Fazer Login</a>
           <Button
@@ -35,18 +35,27 @@ const AppHeader = () => {
           >
             Cadastrar
           </Button>
+          <GiHamburgerMenu
+            className="mobileMenuIcon"
+            size={30}
+            onClick={() => setOpenDropDown((prev) => !prev)}
+          />
         </SideHeaderContent>
       ) : (
-        <SideHeaderContent>
+        <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
           <LoggedUser>
             <img src={""} alt="" />
-            <h2>{user?.name}</h2>
+            <h2>{user}</h2>
           </LoggedUser>
 
-          <GiHamburgerMenu className="mobileMenuIcon" size={30} />
+          <GiHamburgerMenu
+            className="mobileMenuIcon"
+            size={30}
+            
+          />
         </SideHeaderContent>
       )}
-      <DropDownMenu />
+      {openDropDown && <DropDownMenu />}
     </HeaderContainer>
   );
 };

@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Announcement } from "./announcement.entity";
 
 @Entity()
 export class ImageGalery {
@@ -11,6 +12,11 @@ export class ImageGalery {
 
   @Column()
   createdAt: string;
+
+  @OneToMany(() => Announcement, (announcement) => announcement.imgGalery, {
+    eager: true,
+  })
+  announcement: Announcement;
 
   constructor() {
     if (!this.id) {
