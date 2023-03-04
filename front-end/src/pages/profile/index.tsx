@@ -11,8 +11,15 @@ import AuctionShowcase from "../../components/AuctionShowcase";
 import { AuthContext } from "../../context/AuthContext";
 
 const ProfilePage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, isLoading, navigate } = useContext(AuthContext);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
+  console.log(user);
+
+  if (isLoading) return <h1 className="loading">Carregando ...</h1>;
+
+  if (!user) {
+    return navigate("/");
+  }
 
   return (
     <ContainerProfilePage>

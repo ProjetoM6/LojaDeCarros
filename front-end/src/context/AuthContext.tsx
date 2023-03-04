@@ -8,6 +8,7 @@ interface IAuthContext {
   requestLogin: (data: FieldValues) => Promise<void>;
   navigate: NavigateFunction;
   user: IUser | null | undefined;
+  isLoading: boolean;
 }
 
 interface IAuthProvider {
@@ -17,6 +18,7 @@ export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: IAuthProvider) => {
   const [user, setUser] = useState<IUser | null | undefined>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const navigate = useNavigate();
 
   const requestLogin = async (data: FieldValues): Promise<void> => {
@@ -43,11 +45,13 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
           console.error(error);
         }
       }
+      setIsLoading(false);
+      /*  navigate("/", { replace: true }); */
     };
     requestProfile();
   }, []);
   return (
-    <AuthContext.Provider value={{ requestLogin, navigate, user }}>
+    <AuthContext.Provider value={{ requestLogin, navigate, user, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
