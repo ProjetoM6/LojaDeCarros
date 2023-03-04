@@ -5,11 +5,12 @@ const AuctionShowcaseStyled = styled.section`
   width: auto;
   display: flex;
   flex-direction: column;
-  margin: 25vh 0px 0px 20px;
+  margin: 15vh 0px 0px 60px;
 
   .titleAuction {
-    display: none;
-    /*     margin-bottom: 20px; */
+    display: flex;
+    margin-bottom: 20px;
+    font-family: "Lexend";
   }
 
   .UlAuction {
@@ -19,9 +20,12 @@ const AuctionShowcaseStyled = styled.section`
     gap: 20px;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 426px) {
+    position: relative;
+    right: 40px;
+
     .titleAuction {
-      display: block;
+      display: flex;
     }
   }
   @media (min-width: 1024px) {
