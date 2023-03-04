@@ -48,7 +48,8 @@ export class User {
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     eager: true,
   })
-  announcement: Announcement[];
+  @JoinColumn()
+  announcement: Announcement;
 
   @Column()
   createdAt: string;
