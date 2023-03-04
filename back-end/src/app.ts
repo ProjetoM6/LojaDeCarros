@@ -1,11 +1,13 @@
 import "reflect-metadata";
 import "express-async-errors";
 import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
 import userRoutes from "./routes/user/user.routes";
 import loginRoutes from "./routes/login/login.routes";
 import { AppError } from "./errors/appError";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use("/user", userRoutes);
