@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Entity, Column, PrimaryColumn, OneToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { User } from "./user.entity";
 
 @Entity()
 export class Address {
@@ -24,8 +25,8 @@ export class Address {
   @Column()
   complement: string;
 
-  @Column()
-  createdAt: string;
+  @OneToOne(() => User, (user) => user.address)
+  user: User;
 
   constructor() {
     if (!this.id) {

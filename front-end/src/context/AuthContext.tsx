@@ -2,10 +2,12 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { IUser } from "./interfaces";
+import { AxiosError } from "axios";
 import api from "../services";
 
 interface IAuthContext {
   requestLogin: (data: FieldValues) => Promise<void>;
+  requestRegister: (data: FieldValues) => Promise<void>;
   navigate: NavigateFunction;
   user: IUser | null | undefined;
   isLoading: boolean;
@@ -33,6 +35,19 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     return;
   };
 
+  const requestRegister = async (data: FieldValues): Promise<void> => {
+    try {
+      const res = await api.post("/user", data);
+      navigate("/login");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
   useEffect(() => {
     const requestProfile = async () => {
       const token = localStorage.getItem("@lojaDeCarros:token");
@@ -51,7 +66,9 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     requestProfile();
   }, []);
   return (
-    <AuthContext.Provider value={{ requestLogin, navigate, user, isLoading }}>
+    <AuthContext.Provider
+      value={{ requestLogin, navigate, user, isLoading, requestRegister }}
+    >
       {children}
     </AuthContext.Provider>
   );
