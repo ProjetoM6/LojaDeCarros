@@ -3,9 +3,9 @@ import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { Address } from "./entities/adress.entity";
 import { Announcement } from "./entities/announcement.entity";
-
-import { initialMigration1677941328223 } from "./migrations/1677941328223-initialMigration";
-import { createTables1677941344515 } from "./migrations/1677941344515-createTables";
+import { initialMigration1677957407486 } from "./migrations/1677957407486-initialMigration";
+import { createTables1677957463817 } from "./migrations/1677957463817-createTables";
+import { createTables1677958226033 } from "./migrations/1677958226033-createTables";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -28,7 +28,11 @@ const AppDataSource = new DataSource(
         //colocar as entities importadas aqui
         entities: [User, Announcement, Address],
         //colocar o arquivo gerado pós migration e depois dar run
-        migrations: [initialMigration1677941328223, createTables1677941344515],
+        migrations: [
+          initialMigration1677957407486,
+          createTables1677957463817,
+          createTables1677958226033,
+        ],
       }
 );
 
