@@ -35,7 +35,10 @@ export class User {
   @Column()
   type: string;
 
-  @OneToOne(() => Address)
+  @OneToOne(() => Address, {
+    cascade: true,
+    onDelete: "CASCADE",
+  })
   @JoinColumn()
   address: Address;
 
@@ -47,6 +50,7 @@ export class User {
 
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     eager: true,
+    cascade: true,
   })
   @JoinColumn()
   announcement: Announcement;
