@@ -1,37 +1,26 @@
 import { FormStyled } from "../style";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { LabelStyled } from "../../Input/style";
+import { formSchemaCreateAnnouncement } from "../../../validators/schemaCreateAnnouncement";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 import InputRadio from "../../InputRadio";
 import Input from "../../Input";
 import Button from "../../Button/style";
-import { LabelStyled } from "../../Input/style";
 
 const FormCreateAnnouncement = () => {
-  const formSchema = yup.object().shape({
-    type: yup.string().required("Escolha uma opção"),
-    title: yup.string().required("Campo obrigatório"),
-    year: yup.string().required("Campo obrigatório"),
-    km: yup.string().required("Campo obrigatório"),
-    price: yup.string().required("Campo obrigatório"),
-    description: yup.string().required("Campo obrigatório"),
-    typeVeichle: yup.string().required("Campo obrigatório"),
-    img_Cover: yup.string().required("Campo obrigatório"),
-    img_Gallery: yup.string().required("Campo obrigatório"),
-  });
-
+  const { requestCreateAnnouncement } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(formSchemaCreateAnnouncement),
   });
 
-  //   const onSubmitFunction = (data) => console.log(data);
-
   return (
-    <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
+    <FormStyled onSubmit={handleSubmit(requestCreateAnnouncement)}>
       <h1 className="heading-7-500 title">Criar anuncio</h1>
       <h2 className="body-2-500 subTitle">Tipo de anuncio</h2>
       <div className="divInputRadio">
@@ -91,25 +80,25 @@ const FormCreateAnnouncement = () => {
         <InputRadio
           value={"car"}
           register={register}
-          name={"typeVeichle"}
+          name={"type_vehicle"}
           txt={"Carro"}
         />
         <InputRadio
           value={"motocycle"}
           register={register}
-          name={"typeVeichle"}
+          name={"type_vehicle"}
           txt={"Moto"}
         />
       </div>
       <Input
         label="Imagem da capa"
-        name="imgCover"
+        name="img_cover"
         placeholder="Inserir URL da imagem"
         register={register}
       />
       <Input
         label="1ª Imagem da galeria"
-        name="imgGallery"
+        name="img_gallery"
         placeholder="Inserir URL da imagem"
         register={register}
       />
