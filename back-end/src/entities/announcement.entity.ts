@@ -37,7 +37,9 @@ export class Announcement {
   @Column()
   img_cover: string;
 
-  @ManyToOne(() => User, (user) => user.announcement)
+  @ManyToOne(() => User, (user) => user.announcement, {
+    onDelete: "CASCADE",
+  })
   user: User;
 
   @ManyToOne(() => ImageGalery, (imgGalery) => imgGalery.announcement)

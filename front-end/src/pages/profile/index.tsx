@@ -9,11 +9,22 @@ import imgOwner from "../../assets/Frame.svg";
 import ContainerProfilePage from "./style";
 import AuctionShowcase from "../../components/AuctionShowcase";
 import { AuthContext } from "../../context/AuthContext";
+import FormEditAnnouncement from "../../components/Forms/EditAnnouncement";
 
 const ProfilePage = () => {
-  const { user, isLoading, navigate } = useContext(AuthContext);
-  const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
-  console.log(user);
+  const {
+    user,
+    isLoading,
+    navigate,
+    isOpenModalCreate,
+    setIsOpenModalCreate,
+    isOpenModalEdit,
+    setIsOpenModalEdit,
+    isOpenModalDelete,
+    setIsOpenModalDelete,
+  } = useContext(AuthContext);
+
+  console.log(isOpenModalCreate, isOpenModalEdit);
 
   if (isLoading) return <h1 className="loading">Carregando ...</h1>;
 
@@ -31,6 +42,16 @@ const ProfilePage = () => {
           <FormCreateAnnouncement />
         </Modal>
       )}
+
+      {isOpenModalEdit && (
+        <Modal
+          isOpenModal={isOpenModalEdit}
+          setIsOpenModal={setIsOpenModalEdit}
+        >
+          <FormEditAnnouncement />
+        </Modal>
+      )}
+
       <AppHeader />
       <main>
         <div className="azul">
@@ -58,7 +79,7 @@ const ProfilePage = () => {
         </div>
         <AuctionShowcase />
         <AdShowcase
-          type="carro"
+          type="car"
           title="Carros"
           announcements={user?.announcement}
         ></AdShowcase>
