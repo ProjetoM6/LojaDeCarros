@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./user.entity";
-
+import { ImageGalery } from "./image_gallery";
 @Entity()
 export class Announcement {
   @PrimaryColumn("uuid")
@@ -40,6 +40,8 @@ export class Announcement {
   @ManyToOne(() => User, (user) => user.announcement)
   user: User;
 
+  @ManyToOne(() => ImageGalery, (imgGalery) => imgGalery.announcement)
+  imgGalery: ImageGalery;
   @CreateDateColumn()
   createdAt: Date;
 
