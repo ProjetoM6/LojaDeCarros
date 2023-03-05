@@ -4,16 +4,19 @@ const CarAuctionStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 700px;
   min-width: 300px;
   max-width: 600px;
   min-height: 400px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);
   border-radius: 4px 4px 0px 0px;
   position: relative;
+  font-family: "Lexend";
 
   .bodyAuction {
-    height: 298px;
-    top: 104px;
+    min-height: 300px;
+    padding: 0 35px;
+    top: 100px;
     position: absolute;
     .imgCarAuction {
       width: 100%;
@@ -22,7 +25,10 @@ const CarAuctionStyled = styled.div`
     .ContainerFlexRow {
       display: flex;
       justify-content: space-between;
-      width: 100%;
+      align-items: center;
+      width: 90%;
+      position: absolute;
+      bottom: 75px;
     }
 
     .ContainerFlexColumn {
@@ -45,6 +51,7 @@ const CarAuctionStyled = styled.div`
       gap: 12px;
       justify-content: space-between;
       width: 30%;
+
       .SpanInfosCarAuction {
         display: flex;
         align-items: center;
@@ -54,8 +61,12 @@ const CarAuctionStyled = styled.div`
         color: var(--color-brand-1);
         background-color: var(--color-brand-4);
         border-radius: 4px;
+      
       }
     }
+    .value{
+        color: var(--white-fixed);
+      }
   }
   .ContainerFooterAuction {
     display: flex;
@@ -67,12 +78,39 @@ const CarAuctionStyled = styled.div`
     background-color: var(--color-brand-1);
     position: absolute;
     bottom: 0;
+    cursor: pointer;
   }
-  .whiteFixed {
+
+  .footerAuction{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 30px;
+    
+    p{
+      color: var(--white-fixed);
+    }
+  }
+
+  .ContainerFooterAuction:hover{
+    background-color: var(--color-brand-2);
+  }
+
+  .divIcon{
+    display: flex;
+    font-size: 30px;
+    color: var(--white-fixed)
+  }
+
+  @media (max-width: 768px){
+    .bodyAuction{
+      position: relative;
+      right: 20px;
+    }
   }
 
   @media (min-width: 768px) {
-    /*     width: 450px; */
     .bodyAuction {
       .imgCarAuction {
       }
@@ -97,6 +135,7 @@ const CarAuctionStyled = styled.div`
     .whiteFixed {
     }
   }
+
   @media (min-width: 1024px) {
     .bodyAuction {
       .imgCarAuction {

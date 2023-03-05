@@ -4,11 +4,7 @@ import Button from "../Button/style";
 
 const DropDownMenu = () => {
   const [isMobile, setMobile] = useState(false);
-  useEffect(() => {
-    if (window.innerWidth <= 650) {
-      setMobile(true);
-    }
-  }, [window.innerWidth]);
+
   const user = {
     name: "Raimundo",
     img: "https://i.stack.imgur.com/YaL3s.jpg",
@@ -16,16 +12,23 @@ const DropDownMenu = () => {
   const token = true;
   return (
     <DropDownMenuContainer>
-      {isMobile && (
+      <nav className="mobileButtons">
+        <a href="#">Carros</a>
+        <a href="#">Motos</a>
+        <a href="#">Leilão</a>
+      </nav>
+      {token && (
         <nav>
-          <a href="#">manga</a>
-          <a href="#">Motos</a>
-          <a href="#">Leilão</a>
+          <a href="#">Editar Perfil</a>
+          <a href="#">Editar endereço</a>
+          <a href="#">Meus Anúncios</a>
+          <a href="#">Sair</a>
         </nav>
       )}
+
       {!token ? (
         <div>
-          <a href="#">Fazer Login</a>
+          <button>Fazer Login</button>
           <Button
             width="352px"
             color="var(--color-grey-2)"
