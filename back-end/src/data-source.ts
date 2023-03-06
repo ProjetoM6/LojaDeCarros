@@ -7,6 +7,8 @@ import { initialMigration1677957407486 } from "./migrations/1677957407486-initia
 import { createTables1677957463817 } from "./migrations/1677957463817-createTables";
 import { createTables1677958226033 } from "./migrations/1677958226033-createTables";
 import { deleteOnCascade1677964141047 } from "./migrations/1677964141047-deleteOnCascade";
+import { addImgGalery1677985334288 } from "./migrations/1677985334288-addImgGalery";
+import { ImageGalery } from "./entities/image_gallery";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -27,13 +29,14 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         //colocar as entities importadas aqui
-        entities: [User, Announcement, Address],
+        entities: [User, Announcement, Address, ImageGalery],
         //colocar o arquivo gerado pós migration e depois dar run
         migrations: [
           initialMigration1677957407486,
           createTables1677957463817,
           createTables1677958226033,
           deleteOnCascade1677964141047,
+          addImgGalery1677985334288,
         ],
       }
 );
