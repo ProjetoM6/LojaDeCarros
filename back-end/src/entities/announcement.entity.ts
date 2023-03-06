@@ -4,6 +4,7 @@ import {
   PrimaryColumn,
   ManyToOne,
   CreateDateColumn,
+  OneToMany,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./user.entity";
@@ -42,8 +43,12 @@ export class Announcement {
   })
   user: User;
 
-  @ManyToOne(() => ImageGalery, (imgGalery) => imgGalery.announcement)
-  imgGalery: ImageGalery;
+  @OneToMany(() => ImageGalery, (imgGalery) => imgGalery.announcement, {
+    eager: true,
+    onDelete: "CASCADE",
+  })
+  imgGalery: ImageGalery[];
+
   @CreateDateColumn()
   createdAt: Date;
 

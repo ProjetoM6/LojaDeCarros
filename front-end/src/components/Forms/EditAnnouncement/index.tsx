@@ -24,7 +24,8 @@ const FormEditAnnouncement = () => {
     imgCover: yup.string().required("Campo obrigatório"),
     imgGallery: yup.string().required("Campo obrigatório"),
   });
-  const { productModal, setIsOpenModalDelete } = useContext(AuthContext);
+  const { productModal, setIsOpenModalDelete, setIsOpenModalEdit } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -151,6 +152,7 @@ const FormEditAnnouncement = () => {
             colorHover="var(--white-fixed)"
             width="larger"
             onClick={() => {
+              setIsOpenModalEdit(false);
               setIsOpenModalDelete(true);
             }}
           >

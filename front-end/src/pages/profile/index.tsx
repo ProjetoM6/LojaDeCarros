@@ -10,6 +10,7 @@ import ContainerProfilePage from "./style";
 import AuctionShowcase from "../../components/AuctionShowcase";
 import { AuthContext } from "../../context/AuthContext";
 import FormEditAnnouncement from "../../components/Forms/EditAnnouncement";
+import FormDeleteAnnouncement from "../../components/Forms/DeleteAnnouncement";
 
 const ProfilePage = () => {
   const {
@@ -29,7 +30,7 @@ const ProfilePage = () => {
   if (isLoading) return <h1 className="loading">Carregando ...</h1>;
 
   if (!user) {
-    return navigate("/");
+    navigate("/");
   }
 
   return (
@@ -49,6 +50,14 @@ const ProfilePage = () => {
           setIsOpenModal={setIsOpenModalEdit}
         >
           <FormEditAnnouncement />
+        </Modal>
+      )}
+      {isOpenModalDelete && (
+        <Modal
+          isOpenModal={isOpenModalDelete}
+          setIsOpenModal={setIsOpenModalDelete}
+        >
+          <FormDeleteAnnouncement />
         </Modal>
       )}
 
