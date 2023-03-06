@@ -1,11 +1,14 @@
 import { DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
-// import { Contact } from "./entities/contacts.entity";
-import {initialMigration1677869090049} from "./migrations/1677869090049-initialMigration"
-import {createTables1677869101009} from "./migrations/1677869101009-createTables"
-import { editTables1677869583010} from "./migrations/1677869583010-editTables"
+import { Address } from "./entities/adress.entity";
 import { Announcement } from "./entities/announcement.entity";
+import { initialMigration1677957407486 } from "./migrations/1677957407486-initialMigration";
+import { createTables1677957463817 } from "./migrations/1677957463817-createTables";
+import { createTables1677958226033 } from "./migrations/1677958226033-createTables";
+import { deleteOnCascade1677964141047 } from "./migrations/1677964141047-deleteOnCascade";
+import { addImgGalery1677985334288 } from "./migrations/1677985334288-addImgGalery";
+import { ImageGalery } from "./entities/image_gallery";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -26,9 +29,15 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         //colocar as entities importadas aqui
-        entities: [User, Announcement],
+        entities: [User, Announcement, Address, ImageGalery],
         //colocar o arquivo gerado pós migration e depois dar run
-        migrations: [initialMigration1677869090049, createTables1677869101009, editTables1677869583010],
+        migrations: [
+          initialMigration1677957407486,
+          createTables1677957463817,
+          createTables1677958226033,
+          deleteOnCascade1677964141047,
+          addImgGalery1677985334288,
+        ],
       }
 );
 

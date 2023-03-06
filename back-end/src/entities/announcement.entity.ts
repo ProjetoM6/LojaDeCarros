@@ -1,7 +1,14 @@
-import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  ManyToOne,
+  CreateDateColumn,
+  OneToMany,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./user.entity";
-
+import { ImageGalery } from "./image_gallery";
 @Entity()
 export class Announcement {
   @PrimaryColumn("uuid")
@@ -23,16 +30,27 @@ export class Announcement {
   price: string;
 
   @Column()
+  description: string;
+
+  @Column()
   type_vehicle: string;
 
   @Column()
   img_cover: string;
 
-  @ManyToOne(() => User, (user) => user.announcement)
+  @ManyToOne(() => User, (user) => user.announcement, {
+    onDelete: "CASCADE",
+  })
   user: User;
 
-  @Column()
-  createdAt: string;
+  @OneToMany(() => ImageGalery, (imgGalery) => imgGalery.announcement, {
+    eager: true,
+    onDelete: "CASCADE",
+  })
+  imgGalery: ImageGalery[];
+
+  @CreateDateColumn()
+  createdAt: Date;
 
   constructor() {
     if (!this.id) {

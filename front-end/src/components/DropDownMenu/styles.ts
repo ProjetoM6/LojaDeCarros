@@ -34,6 +34,12 @@ export const DropDownMenuContainer = styled.div`
     }
   }
   @media (min-width: 650px) {
+    .mobileButtons {
+      display: none;
+    }
+    nav {
+      gap: 16px;
+    }
     width: 20%;
     height: 200px;
     right: 0.01rem;
@@ -61,5 +67,8 @@ export const MobileLoggedUser = styled.aside`
     font-size: 16px;
     line-height: 28px;
     color: var(--color-grey-2);
+  }
+  @media (min-width: 650px) {
+    display: none;
   }
 `;

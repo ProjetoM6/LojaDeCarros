@@ -51,7 +51,7 @@ export const FormStyled = styled.form`
 
 /// ** Modal Excluir ** ///
 
-export const DeleteFormStyled = styled.form`
+export const DeleteDivStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;

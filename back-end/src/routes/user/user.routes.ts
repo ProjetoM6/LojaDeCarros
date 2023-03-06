@@ -13,7 +13,7 @@ const router = Router();
 router.post("", createUserController);
 router.post("/resetPassword", sendResetUserPasswordController);
 router.get("", listUsersController);
-router.get("/user", authUser, getOwnUserController);
+router.get("/profile", authUser, getOwnUserController);
 router.patch("/:id", authUser, updateUserController);
 router.patch("/password/:token", resetUserPasswordController);
 router.delete("/:id", authUser, userDeleteController);

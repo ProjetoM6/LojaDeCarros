@@ -1,5 +1,13 @@
-import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  OneToMany,
+  OneToOne,
+  JoinColumn,
+} from "typeorm";
 import { v4 as uuid } from "uuid";
+import { Address } from "./adress.entity";
 import { Announcement } from "./announcement.entity";
 @Entity()
 export class User {
@@ -22,7 +30,17 @@ export class User {
   date_of_birth: string;
 
   @Column()
+  description: string;
+
+  @Column()
   type: string;
+
+  @OneToOne(() => Address, {
+    cascade: true,
+    onDelete: "CASCADE",
+  })
+  @JoinColumn()
+  address: Address;
 
   @Column()
   password: string;
@@ -32,8 +50,10 @@ export class User {
 
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     eager: true,
+    cascade: true,
   })
-  announcement: Announcement[];
+  @JoinColumn()
+  announcement: Announcement;
 
   @Column()
   createdAt: string;

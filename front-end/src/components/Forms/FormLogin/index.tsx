@@ -2,27 +2,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FieldValues } from "react-hook-form/dist/types";
 import { FormStyled } from "../style";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 import schemaLogin from "../../../validators/schemaLogin";
 import Button from "../../Button/style";
 import Input from "../../Input";
-import api from "../../../services";
-
-import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
-  const navigate = useNavigate();
-
-  const requestLogin = async (data: FieldValues) => {
-    try {
-      const res = await api.post("/user/login", data);
-      navigate("/profile");
-      console.log(res);
-    } catch (error) {
-      console.error(error);
-    }
-    return;
-  };
-
+  const { requestLogin, navigate } = useContext(AuthContext);
   const {
     register,
     handleSubmit,

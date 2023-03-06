@@ -1,26 +1,33 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AdShowcase from "../../components/AdShowcase";
 import AuctionShowcase from "../../components/AuctionShowcase";
-import CardAuction from "../../components/CarAuction";
 import Footer from "../../components/Footer";
 import FormCreateAnnouncement from "../../components/Forms/CreateAnnouncement";
 import AppHeader from "../../components/Header";
 import Modal from "../../components/Modal";
+import { AuthContext } from "../../context/AuthContext";
+import { IAnnouncement } from "../../context/interfaces";
+import api from "../../services";
 import ContainerProfilePage from "./style";
 
 const Homepage = () => {
-  const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
+  const [announcements, setAnnouncements] = useState<IAnnouncement[]>([]);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    const requestAllAnnouncement = async () => {
+      try {
+        const res = await api.get("/user/announcement");
+        setAnnouncements(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    requestAllAnnouncement();
+  }, []);
 
   return (
     <ContainerProfilePage>
-      {isOpenModalCreate && (
-        <Modal
-          isOpenModal={isOpenModalCreate}
-          setIsOpenModal={setIsOpenModalCreate}
-        >
-          <FormCreateAnnouncement />
-        </Modal>
-      )}
       <AppHeader />
       <main>
         <section className="azul">
@@ -40,8 +47,16 @@ const Homepage = () => {
 
         <AuctionShowcase />
 
-        <AdShowcase type="carro" title="Carros"></AdShowcase>
-        <AdShowcase type="moto" title="Motos"></AdShowcase>
+        <AdShowcase
+          type="car"
+          title="Carros"
+          announcements={announcements}
+        ></AdShowcase>
+        <AdShowcase
+          type="motocycle"
+          title="Motos"
+          announcements={announcements}
+        ></AdShowcase>
       </main>
       <Footer />
     </ContainerProfilePage>

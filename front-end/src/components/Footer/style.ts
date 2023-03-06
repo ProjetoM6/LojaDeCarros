@@ -19,11 +19,30 @@ export const Wrapper = styled.footer`
     font-family: "Inter";
   }
 
-  @media (max-width: 1024px) {
+  a{
+    width: 40px;
+  }
+
+  button{
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-grey-1);
+    border: none;
+    color: var(--white-fixed);
+    cursor: pointer;
+  }
+
+
+  @media (max-width: 768px) {
     flex-direction: column;
 
     span {
       font-size: 15px;
+      margin: 30px 0;
+    }
+
+    button{
+      margin: 20px 0;
     }
   }
 

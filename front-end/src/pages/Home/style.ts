@@ -9,6 +9,7 @@ const ContainerProfilePage = styled.div`
   .azul {
     width: 100%;
     background-color: var(--color-brand-1);
+    margin: 0 auto;
   }
 
   .container {
