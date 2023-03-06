@@ -3,7 +3,8 @@ import { AuthContext } from "../../../context/AuthContext";
 import { DeleteDivStyled } from "../style";
 
 const FormDeleteAnnouncement = () => {
-  const { productModal, requestDeleteAnnouncement } = useContext(AuthContext);
+  const { productModal, requestDeleteAnnouncement, setIsOpenModalDelete } =
+    useContext(AuthContext);
 
   return (
     <DeleteDivStyled>
@@ -22,7 +23,9 @@ const FormDeleteAnnouncement = () => {
         </p>
       </div>
       <div className="DivButtons">
-        <button className="cancel">Cancelar</button>
+        <button className="cancel" onClick={() => setIsOpenModalDelete(false)}>
+          Cancelar
+        </button>
         <button
           className="delete"
           onClick={() => requestDeleteAnnouncement(productModal.id)}
