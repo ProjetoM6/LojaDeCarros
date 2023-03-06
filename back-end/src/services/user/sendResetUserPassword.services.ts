@@ -26,11 +26,11 @@ const sendResetUserPasswordService = async(email: string, protocol: string, host
         token_reset_password: resetPasswordToken
     })
 
-    const emailData: IEmailRequest ={
+    const emailData: IEmailRequest = {
+        to: email,
         subject: "Reset de senha",
         text: `<h1>Mudança de senha requerida pelo usuário</h1>
         <h3>Olá ${user.name}, acesse o link para mudar sua senha: ${protocol}://${host}/users/password/${resetPasswordToken}</h3>`,
-        to: email
     }
 
     await sendEmail(emailData)
