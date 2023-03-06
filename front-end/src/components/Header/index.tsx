@@ -22,7 +22,7 @@ const AppHeader = () => {
           <a href="#">Leilão</a>
         </nav>
       </MainHeaderContent>
-      {user ? (
+      {!user ? (
         <SideHeaderContent>
           <a href="login">Fazer Login</a>
           <Button
@@ -45,14 +45,10 @@ const AppHeader = () => {
         <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
           <LoggedUser>
             <img src={""} alt="" />
-            <h2>{user}</h2>
+            <h2>{user?.name}</h2>
           </LoggedUser>
 
-          <GiHamburgerMenu
-            className="mobileMenuIcon"
-            size={30}
-            
-          />
+          <GiHamburgerMenu className="mobileMenuIcon" size={30} />
         </SideHeaderContent>
       )}
       {openDropDown && <DropDownMenu />}

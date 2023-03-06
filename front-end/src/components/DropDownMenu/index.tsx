@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DropDownMenuContainer, MobileLoggedUser } from "./styles";
 import Button from "../Button/style";
 
+import { AuthContext } from "../../context/AuthContext";
+
 const DropDownMenu = () => {
   const [isMobile, setMobile] = useState(false);
+  const { user, navigate } = useContext(AuthContext);
 
-  const user = {
+  const user1 = {
     name: "Raimundo",
     img: "https://i.stack.imgur.com/YaL3s.jpg",
   };
@@ -17,7 +20,7 @@ const DropDownMenu = () => {
         <a href="#">Motos</a>
         <a href="#">Leilão</a>
       </nav>
-      {token && (
+      {user && (
         <nav>
           <a href="#">Editar Perfil</a>
           <a href="#">Editar endereço</a>
@@ -26,7 +29,7 @@ const DropDownMenu = () => {
         </nav>
       )}
 
-      {!token ? (
+      {!user ? (
         <div>
           <button>Fazer Login</button>
           <Button
@@ -41,7 +44,7 @@ const DropDownMenu = () => {
         </div>
       ) : (
         <MobileLoggedUser>
-          <img src={user.img} alt="" />
+          <img src="https://i.stack.imgur.com/YaL3s.jpg" alt="" />
           <h2>{user.name}</h2>
         </MobileLoggedUser>
       )}
