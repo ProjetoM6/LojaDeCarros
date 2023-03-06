@@ -4,6 +4,7 @@ const ProductCardStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 300px;
+  max-width: 300px;
   gap: 15px;
   position: relative;
   &:hover {
@@ -14,6 +15,7 @@ const ProductCardStyled = styled.div`
   .imgProduct {
     background-color: var(--color-grey-7);
     width: 100%;
+    height: 200px;
     border: 2px solid transparent;
   }
   .ContainerFlexColumn {
