@@ -25,8 +25,8 @@ const ProfileViewUser = () => {
           </section>
         </div>
 
-        <AdShowcase type="carro" title="Carros"></AdShowcase>
-        <AdShowcase type="moto" title="Motos"></AdShowcase>
+        {/*         <AdShowcase type="carro" title="Carros"></AdShowcase>
+        <AdShowcase type="moto" title="Motos"></AdShowcase> */}
       </main>
       <Footer />
     </>
