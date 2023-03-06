@@ -1,27 +1,20 @@
 import ProductCardStyled, { IsActive } from "./style";
 import Button from "../Button/style";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import FormEditAnnouncement from "../Forms/EditAnnouncement";
 import Modal from "../Modal";
 import { IAnnouncement } from "../../context/interfaces";
+import { AuthContext } from "../../context/AuthContext";
 
 interface ProductProps {
   product: IAnnouncement;
 }
-const ProductCard: React.FC<ProductProps> = ({ product }) => {
-  const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false);
 
+const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const { setProdutModal, setIsOpenModalEdit } = useContext(AuthContext);
   const user = { id: "1911" };
   return (
     <>
-      {isOpenModalEdit && (
-        <Modal
-          isOpenModal={isOpenModalEdit}
-          setIsOpenModal={setIsOpenModalEdit}
-        >
-          <FormEditAnnouncement />
-        </Modal>
-      )}
       <ProductCardStyled>
         <img src={product.img_cover} alt="" className="imgProduct" />
         {product.ownerId === user.id && (
@@ -52,7 +45,10 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
               background="var(--color-grey-7)"
               borderColor="var(--color-grey-0)"
               hover="var(--color-grey-6)"
-              onClick={() => setIsOpenModalEdit(true)}
+              onClick={() => {
+                setProdutModal(product);
+                setIsOpenModalEdit(true);
+              }}
             >
               Editar
             </Button>

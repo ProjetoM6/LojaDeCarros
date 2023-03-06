@@ -1,7 +1,8 @@
 import CarAuctionStyled, { TimerComponent } from "./style";
 import timerIcon from "../../assets/icons/timer.svg";
-import carAuction1 from "../../assets/carAuction1.svg";
+import CarAuction1 from "../../assets/CarAuction1.svg";
 import Button from "../Button/style";
+import { FiArrowRight } from "react-icons/fi";
 
 const CardAuction = () => {
   return (
@@ -11,7 +12,7 @@ const CardAuction = () => {
         <span className="heading-7-500">02:00:00</span>
       </TimerComponent>
       <div className="bodyAuction">
-        <img src={carAuction1} alt="" className="imgCarAuction" />
+        <img src={CarAuction1} alt="" className="imgCarAuction" />
         <div className="ContainerFlexColumn">
           <h2 className="heading-6-600">
             Mercedes Benz A 200 CGI ADVANCE SEDAN Mercedes
@@ -26,11 +27,11 @@ const CardAuction = () => {
             <span className="SpanInfosCarAuction">0 KM</span>
             <span className="SpanInfosCarAuction">2019</span>
           </div>
-          <span className="heading-7-500">R$ 0000,00</span>
+          <span className="heading-7-500 value">R$ 00.000,00</span>
         </div>
       </div>
       <div className="ContainerFooterAuction">
-        {true ? (
+        {false ? (
           <>
             <Button
               width="big"
@@ -52,7 +53,12 @@ const CardAuction = () => {
             </Button>
           </>
         ) : (
-          <p>Acessar pagina do leilão</p>
+          <div className="heading-7-600 footerAuction ">
+            <p>Acessar pagina do leilão</p>
+            <div className="divIcon">
+              <FiArrowRight />
+            </div>
+          </div>
         )}
       </div>
     </CarAuctionStyled>

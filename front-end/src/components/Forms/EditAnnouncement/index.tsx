@@ -2,16 +2,16 @@ import { FormStyled } from "../style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "../../Modal";
 import FormDeleteAnnouncement from "../DeleteAnnouncement";
 import InputRadio from "../../InputRadio";
 import Input from "../../Input";
 import { LabelStyled } from "../../Input/style";
 import Button from "../../Button/style";
+import { AuthContext } from "../../../context/AuthContext";
 
 const FormEditAnnouncement = () => {
-  const [isOpenModalDelete, setIsOpenModalDelete] = useState<boolean>(false);
   const formSchema = yup.object().shape({
     type: yup.string().required("Escolha uma opção"),
     title: yup.string().required("Campo obrigatório"),
@@ -24,7 +24,8 @@ const FormEditAnnouncement = () => {
     imgCover: yup.string().required("Campo obrigatório"),
     imgGallery: yup.string().required("Campo obrigatório"),
   });
-
+  const { productModal, setIsOpenModalDelete, setIsOpenModalEdit } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -34,19 +35,11 @@ const FormEditAnnouncement = () => {
   });
 
   //   const onSubmitFunction = (data) => console.log(data);
-
+  console.log(productModal);
   return (
     <>
-      {isOpenModalDelete && (
-        <Modal
-          isOpenModal={isOpenModalDelete}
-          setIsOpenModal={setIsOpenModalDelete}
-        >
-          <FormDeleteAnnouncement />
-        </Modal>
-      )}
       <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
-        <h1 className="heading-7-500 title">Criar anuncio</h1>
+        <h1 className="heading-7-500 title">Editar anuncio</h1>
         <h2 className="body-2-500 subTitle">Tipo de anuncio</h2>
         <div className="divInputRadio">
           <InputRadio
@@ -158,7 +151,10 @@ const FormEditAnnouncement = () => {
             hover="var(--color-alert-1)"
             colorHover="var(--white-fixed)"
             width="larger"
-            onClick={() => setIsOpenModalDelete(true)}
+            onClick={() => {
+              setIsOpenModalEdit(false);
+              setIsOpenModalDelete(true);
+            }}
           >
             Excluir anúncio
           </Button>

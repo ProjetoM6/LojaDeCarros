@@ -35,20 +35,25 @@ export class User {
   @Column()
   type: string;
 
-  @OneToOne(() => Address)
+  @OneToOne(() => Address, {
+    cascade: true,
+    onDelete: "CASCADE",
+  })
   @JoinColumn()
   address: Address;
 
   @Column()
   password: string;
 
-  @Column({ default: null })
-  token_reset_password: string;
+  @Column({default: null})
+  token_reset_password: string
 
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     eager: true,
+    cascade: true,
   })
-  announcement: Announcement[];
+  @JoinColumn()
+  announcement: Announcement;
 
   @Column()
   createdAt: string;
