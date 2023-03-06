@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryColumn, ManyToOne } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Announcement } from "./announcement.entity";
 
@@ -13,8 +13,8 @@ export class ImageGalery {
   @Column()
   createdAt: string;
 
-  @OneToMany(() => Announcement, (announcement) => announcement.imgGalery, {
-    eager: true,
+  @ManyToOne(() => Announcement, (announcement) => announcement.imgGalery, {
+    onDelete: "CASCADE",
   })
   announcement: Announcement;
 
