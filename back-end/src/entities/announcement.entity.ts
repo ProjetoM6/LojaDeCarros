@@ -47,7 +47,7 @@ export class Announcement {
     eager: true,
     onDelete: "CASCADE",
   })
-  imgGalery: ImageGalery[];
+  img_galery: ImageGalery[];
 
   @CreateDateColumn()
   createdAt: Date;
