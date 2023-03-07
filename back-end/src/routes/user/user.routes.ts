@@ -11,10 +11,10 @@ import { authUser } from "../../middlewares/authUser.middleware";
 const router = Router();
 
 router.post("", createUserController);
-router.post("/resetPassword", sendResetUserPasswordController);
+router.post("/sendResetPassword", sendResetUserPasswordController);
 router.get("", listUsersController);
 router.get("/profile", authUser, getOwnUserController);
 router.patch("/:id", authUser, updateUserController);
-router.patch("/password/:token", resetUserPasswordController);
+router.patch("/resetPassword/newPassword", resetUserPasswordController);
 router.delete("/:id", authUser, userDeleteController);
 export default router;

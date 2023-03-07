@@ -15,6 +15,8 @@ import api from "../services";
 interface IAuthContext {
   requestLogin: (data: FieldValues) => Promise<void>;
   requestRegister: (data: FieldValues) => Promise<void>;
+  requestSendResetPassword: (data: FieldValues) => Promise<void>;
+  requestResetPassword: (data: FieldValues) => Promise<void>;
   requestCreateAnnouncement: (data: FieldValues) => Promise<void>;
   requestUpdateAnnouncement: (data: FieldValues) => Promise<void>;
   requestDeleteAnnouncement: (id: string) => Promise<void>;
@@ -137,6 +139,32 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
+
+  const requestSendResetPassword = async (data: FieldValues): Promise<void> => {
+    try {
+      const res = await api.post("/user/sendResetPassword", data);
+      navigate("/resetPassword/")
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
+  const requestResetPassword = async (data: FieldValues): Promise<void> => {
+    try {
+      const res = await api.patch("/user/resetPassword/newPassword", data);
+      navigate("/login");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
+    }
+
   const initialLetters = (names: string) => {
     let letters: string = "";
     names.split(" ").forEach((name) => (letters += name[0]));
@@ -174,6 +202,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         requestCreateAnnouncement,
         requestUpdateAnnouncement,
         requestDeleteAnnouncement,
+        requestSendResetPassword,
+        requestResetPassword,
         isOpenModalCreate,
         setIsOpenModalCreate,
         isOpenModalEdit,
