@@ -27,10 +27,18 @@ const ContainerProfilePage = styled.div`
     border-radius: 4px;
   }
 
-  .ImgUser {
+  .divInitials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 104px;
+    height: 104px;
     border-radius: 50%;
-    object-fit: cover;
+    background-color: var(--color-brand-1);
+    .pInitials {
+      font-size: 48px;
+      color: var(--white-fixed);
+    }
   }
 
   .ContainerInfos {

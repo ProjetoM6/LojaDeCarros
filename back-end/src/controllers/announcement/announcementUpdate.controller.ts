@@ -8,11 +8,6 @@ const announcementUpdateController = async (
   const announcementId: string = req.params.announcementId;
   delete req.body.decodifiedToken;
   const updateData: any = req.body;
-
-  console.log(
-    updateData,
-    "testestetstestestestesteststeststestesteasdfjoasdnfuioawdnfoan sdofsadfasd54fsad54f5sad4fsad4f6sd4f6sd4f6sd4fxzc1a3sfasd´lcvmdfnjsiodnji"
-  );
   const announcementUpdated = await announcementUpdateServices(
     announcementId,
     updateData

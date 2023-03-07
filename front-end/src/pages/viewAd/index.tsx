@@ -1,9 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import Button from "../../components/Button/style";
 import AppHeader from "../../components/Header";
+import { AuthContext } from "../../context/AuthContext";
 import ContainerViewAdPage, { AsideAdViewPage } from "./style";
 
 const ViewAdPage = () => {
+  const { announcementView, initialLetters } = useContext(AuthContext);
   const containerSectionAdRef = useRef<HTMLElement>(null);
   const containerAzul = useRef<HTMLDivElement>(null);
   const [marginTop, setMarginTop] = useState<Number>(0);
@@ -25,7 +27,6 @@ const ViewAdPage = () => {
 
     const heigthSectionAdRef = containerSectionAdRef.current?.offsetHeight;
     const heigthAzul = containerAzul.current?.offsetHeight;
-    console.log("teste");
 
     if (heigthSectionAdRef) {
       setMarginTop(heigthSectionAdRef - heigthAzul! + 50);
@@ -35,24 +36,26 @@ const ViewAdPage = () => {
   }, [windowSize]);
 
   return (
-    <ContainerViewAdPage>
+    <ContainerViewAdPage marginTopCommentDesktop={marginTop}>
       <AppHeader />
       <main>
         <div className="azul" ref={containerAzul}></div>
         <section className="containerSectionAd" ref={containerSectionAdRef}>
           <div className="containerCoverImage">
-            <img src="" alt="" />
+            <img
+              src={announcementView?.img_cover}
+              alt=""
+              className="coverImg"
+            />
           </div>
           <div className="containerInfosAd">
-            <h2 className="--heading-6-600">
-              Mercedes Benz A 200 CGI ADVANCE SEDAN Mercedes Benz A 200{" "}
-            </h2>
+            <h2 className="--heading-6-600">{announcementView?.title}</h2>
             <div className="containerFlexColumn">
               <div className="containerInfoKmYear">
-                <span className="spanInfos">2013</span>
-                <span className="spanInfos">0 KM</span>
+                <span className="spanInfos">{announcementView?.year}</span>
+                <span className="spanInfos">{announcementView?.km} Km</span>
               </div>
-              <span className="heading-7-500">R$ 000000</span>
+              <span className="heading-7-500">{announcementView?.price}</span>
             </div>
             <Button
               width={"medium"}
@@ -65,12 +68,7 @@ const ViewAdPage = () => {
           </div>
           <div className="containerDescription">
             <h2>Descrição</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.{" "}
-            </p>
+            <p>{announcementView?.description}</p>
           </div>
         </section>
         <AsideAdViewPage marginTop={marginTop}>
@@ -83,11 +81,17 @@ const ViewAdPage = () => {
             </ul>
           </div>
           <div className="containerAdvertiser">
-            <img src="" alt="" />
-            <h2>Samuel Leão</h2>
+            <div className="divInitials">
+              <p className="pInitials">
+                {initialLetters(
+                  announcementView?.ownerName || "Nome do anunciante"
+                )}
+              </p>
+            </div>
+            <h2>{announcementView?.ownerName || "Nome do anunciante"}</h2>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's
+              {announcementView?.ownerDescription ||
+                "Descrição do anunciante indisponivel"}
             </p>
             <Button
               background="var(--color-grey-0)"

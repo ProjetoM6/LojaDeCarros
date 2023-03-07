@@ -13,7 +13,7 @@ export class ImageGalery {
   @Column()
   createdAt: string;
 
-  @ManyToOne(() => Announcement, (announcement) => announcement.imgGalery, {
+  @ManyToOne(() => Announcement, (announcement) => announcement.img_galery, {
     onDelete: "CASCADE",
   })
   announcement: Announcement;

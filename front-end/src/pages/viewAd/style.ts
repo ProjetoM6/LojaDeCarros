@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-const ContainerViewAdPage = styled.div`
+interface IContainerViewPageProps {
+  marginTopCommentDesktop: Number;
+}
+const ContainerViewAdPage = styled.div<IContainerViewPageProps>`
   height: 100vh;
   background-color: var(--color-grey-8);
   main {
@@ -20,10 +23,18 @@ const ContainerViewAdPage = styled.div`
       border-radius: 4px;
 
       .containerCoverImage {
+        display: flex;
+        justify-content: center;
         min-height: 350px;
+        max-height: 350px;
         width: 100%;
         background-color: var(--color-grey-10);
         border-radius: 4px;
+        .coverImg {
+          width: 100%;
+          height: auto;
+          object-fit: fill;
+        }
       }
 
       .containerInfosAd {
@@ -133,8 +144,59 @@ const ContainerViewAdPage = styled.div`
 
   .azul {
     width: 100%;
-    height: 357px;
+    height: 50vh;
     background-color: var(--color-brand-1);
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      display: flex;
+      flex-direction: column;
+      .containerSectionAd {
+        width: 50%;
+        .containerCoverImage {
+          .coverImg {
+          }
+        }
+
+        .containerInfosAd {
+          .--heading-6-600 {
+          }
+          .containerFlexColumn {
+            .containerInfoKmYear {
+              .spanInfos {
+              }
+            }
+            .heading-7-500 {
+            }
+          }
+        }
+        .containerDescription {
+        }
+      }
+      .containerComments {
+        width: 50%;
+        margin-left: 5%;
+        margin-top: ${(props) => `${props.marginTopCommentDesktop}px`};
+        .comments {
+          .comment {
+            .ownerComent {
+              img {
+              }
+            }
+          }
+        }
+
+        .makeComment {
+          .imgUserName {
+            img {
+            }
+            .body-2-500 {
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -148,7 +210,7 @@ export const AsideAdViewPage = styled.aside<IAsideAdViewPage>`
   margin: 0 auto;
   margin-top: ${(props) => `${props.marginTop}px`};
   width: 90%;
-  background: var(--color-grey-8);
+  /*   background: var(--color-grey-8); */
 
   .containerGallery {
     display: flex;
@@ -173,6 +235,32 @@ export const AsideAdViewPage = styled.aside<IAsideAdViewPage>`
     height: auto;
     background: var(--color-grey-10);
     border-radius: 4px;
+    .divInitials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background-color: var(--color-brand-1);
+      .pInitials {
+        font-size: 48px;
+        color: var(--white-fixed);
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%;
+    position: absolute;
+    margin: 0;
+    right: 5vw;
+    top: 40px;
+    .containerGallery {
+    }
+
+    .containerAdvertiser {
+    }
   }
 `;
 

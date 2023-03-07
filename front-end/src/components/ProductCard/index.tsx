@@ -11,7 +11,8 @@ interface ProductProps {
 }
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
-  const { setProdutModal, setIsOpenModalEdit } = useContext(AuthContext);
+  const { setProdutModal, setIsOpenModalEdit, navigate, setAnnouncementView } =
+    useContext(AuthContext);
   const user = { id: "1911" };
   return (
     <>
@@ -58,6 +59,10 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
               background="var(--color-grey-7)"
               borderColor="var(--color-grey-0)"
               hover="var(--color-grey-6)"
+              onClick={() => {
+                navigate("/view-ad");
+                setAnnouncementView(product);
+              }}
             >
               Ver como
             </Button>
