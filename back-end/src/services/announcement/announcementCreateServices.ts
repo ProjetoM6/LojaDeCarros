@@ -22,9 +22,6 @@ const announcementCreateServices = async (
   const announcementCreated = await announcementRepository.findOneBy({
     id: announcementCreate.id,
   });
-  console.log(
-    "testestestexteteswasdfsdiofsdo9fhsauiodhfuiosadfnvuiosadfnguioaefhguioefhnguiosadfhguiopsadfhnguipsadbnjiofnsadjifnsaduiofnsaduifnsauidfhnuisadnf"
-  );
 
   console.log(announcementCreated);
   return announcementCreated;
