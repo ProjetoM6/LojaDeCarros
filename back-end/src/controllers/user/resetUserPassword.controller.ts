@@ -3,8 +3,7 @@ import resetUserPasswordService from "../../services/user/resetUserPassword.serv
 
 const resetUserPasswordController = async (req: Request, res: Response) => {
 
-    const {token} = req.params
-    const {newPassword} = req.body
+    const {token, newPassword} = req.body
 
     await resetUserPasswordService(token, newPassword)
 
