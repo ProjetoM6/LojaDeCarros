@@ -45,8 +45,8 @@ export class User {
   @Column()
   password: string;
 
-  @Column({ default: null })
-  token_reset_password: string;
+  @Column({default: null})
+  token_reset_password: string
 
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     eager: true,

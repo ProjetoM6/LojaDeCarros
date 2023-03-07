@@ -1,6 +1,6 @@
 import CarAuctionStyled, { TimerComponent } from "./style";
 import timerIcon from "../../assets/icons/timer.svg";
-import carAuction1 from "../../assets/carAuction1.svg";
+import CarAuction1 from "../../assets/CarAuction1.svg";
 import Button from "../Button/style";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -12,7 +12,7 @@ const CardAuction = () => {
         <span className="heading-7-500">02:00:00</span>
       </TimerComponent>
       <div className="bodyAuction">
-        <img src={carAuction1} alt="" className="imgCarAuction" />
+        <img src={CarAuction1} alt="" className="imgCarAuction" />
         <div className="ContainerFlexColumn">
           <h2 className="heading-6-600">
             Mercedes Benz A 200 CGI ADVANCE SEDAN Mercedes

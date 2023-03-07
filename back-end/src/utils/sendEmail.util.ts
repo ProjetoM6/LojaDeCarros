@@ -5,7 +5,7 @@ import { IEmailRequest } from "../interfaces/emails";
 const sendEmail = async ({subject, text, to}: IEmailRequest) =>{
 
     const transporter = createTransport({
-        host: "smtp.gmail.com",
+        host: "smtp-mail.outlook.com",
         port: 587,
         secure: false,
         auth: {
@@ -15,7 +15,7 @@ const sendEmail = async ({subject, text, to}: IEmailRequest) =>{
     })
 
     await transporter.sendMail({
-        from: "victoraugusto340@gmail.com",
+        from: "victor-99-2007@hotmail.com",
         to: to,
         subject: subject,
         text: text
