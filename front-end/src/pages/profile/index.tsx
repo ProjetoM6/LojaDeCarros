@@ -15,6 +15,7 @@ import FormDeleteAnnouncement from "../../components/Forms/DeleteAnnouncement";
 const ProfilePage = () => {
   const {
     user,
+    announcementUser,
     isLoading,
     navigate,
     isOpenModalCreate,
@@ -23,6 +24,7 @@ const ProfilePage = () => {
     setIsOpenModalEdit,
     isOpenModalDelete,
     setIsOpenModalDelete,
+    initialLetters,
   } = useContext(AuthContext);
 
   console.log(isOpenModalCreate, isOpenModalEdit);
@@ -66,7 +68,10 @@ const ProfilePage = () => {
         <div className="azul">
           <section className="ContainerUser">
             <div className="ContainerInfos">
-              <img src={imgOwner} className="ImgUser" />
+              {/* <img src={imgOwner} className="ImgUser" /> */}
+              <div className="divInitials">
+                <p className="pInitials">{initialLetters(user!.name)}</p>
+              </div>
               <div className="TypeUser">
                 <h2>{user?.name}</h2>
                 <span>{user?.type}</span>
@@ -90,12 +95,12 @@ const ProfilePage = () => {
         <AdShowcase
           type="car"
           title="Carros"
-          announcements={user?.announcement}
+          announcements={announcementUser}
         ></AdShowcase>
         <AdShowcase
-          type="moto"
+          type="motocycle"
           title="Motos"
-          announcements={user?.announcement}
+          announcements={announcementUser}
         ></AdShowcase>
       </main>
       <Footer />
