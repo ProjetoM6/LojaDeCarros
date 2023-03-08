@@ -27,4 +27,5 @@ export interface IAnnouncement {
   ownerId: string;
   ownerName: string;
   ownnerImg: string;
+  ownerDescription: string;
 }

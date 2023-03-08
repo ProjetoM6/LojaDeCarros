@@ -37,7 +37,7 @@ const FormLogin = () => {
         register={register}
       />
       {/*  {errors.senha && <span>{errors.senha.message}</span>} */}
-      <a href="#">Esqueci minha senha</a>
+      <a href="#" onClick={() => navigate("/sendResetPassword")}>Esqueci minha senha</a>
       <Button
         background="var(--color-brand-1)"
         color="var(--white-fixed)"

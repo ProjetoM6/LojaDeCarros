@@ -4,7 +4,7 @@ const ModalStyled = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   z-index: 9999;
 
   .modalRef {
