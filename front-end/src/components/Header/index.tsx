@@ -23,6 +23,15 @@ const AppHeader = () => {
         </nav>
       </MainHeaderContent>
       {user ? (
+        <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
+          <LoggedUser>
+            <img src={""} alt="" />
+            <h2>{user!.name}</h2>
+          </LoggedUser>
+
+          <GiHamburgerMenu className="mobileMenuIcon" size={30} />
+        </SideHeaderContent>
+      ) : (
         <SideHeaderContent>
           <a href="login">Fazer Login</a>
           <Button
@@ -39,19 +48,6 @@ const AppHeader = () => {
             className="mobileMenuIcon"
             size={30}
             onClick={() => setOpenDropDown((prev) => !prev)}
-          />
-        </SideHeaderContent>
-      ) : (
-        <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
-          <LoggedUser>
-            <img src={""} alt="" />
-            <h2>{user}</h2>
-          </LoggedUser>
-
-          <GiHamburgerMenu
-            className="mobileMenuIcon"
-            size={30}
-            
           />
         </SideHeaderContent>
       )}

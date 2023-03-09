@@ -10,7 +10,7 @@ export class Comment {
   comments: string;
 
   @Column()
-  createdAt: string;
+  createdAt: Date;
 
   constructor() {
     if (!this.id) {

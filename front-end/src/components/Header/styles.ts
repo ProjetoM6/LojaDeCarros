@@ -25,7 +25,6 @@ export const MainHeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   img {
     margin-left: 60px;
   }
@@ -48,11 +47,22 @@ export const SideHeaderContent = styled.div`
   gap: 44px;
   align-items: center;
   justify-content: center;
-
+  a {
+    display: none;
+  }
+  button {
+    display: none;
+  }
   @media (min-width: 650px) {
     border-left: 2px solid var(--color-grey-6);
     .mobileMenuIcon {
       display: none;
+    }
+    a {
+      display: block;
+    }
+    button {
+      display: block;
     }
   }
 `;

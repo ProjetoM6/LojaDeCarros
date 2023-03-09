@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DropDownMenuContainer, MobileLoggedUser } from "./styles";
 import Button from "../Button/style";
 
-const DropDownMenu = () => {
-  const [isMobile, setMobile] = useState(false);
+import { AuthContext } from "../../context/AuthContext";
 
-  const user = {
-    name: "Raimundo",
-    img: "https://i.stack.imgur.com/YaL3s.jpg",
-  };
-  const token = true;
+const DropDownMenu = () => {
+  const { user, navigate, setIsOpenModalEditUser } = useContext(AuthContext);
+
   return (
     <DropDownMenuContainer>
       <nav className="mobileButtons">
@@ -17,16 +14,18 @@ const DropDownMenu = () => {
         <a href="#">Motos</a>
         <a href="#">Leilão</a>
       </nav>
-      {token && (
+      {user && (
         <nav>
-          <a href="#">Editar Perfil</a>
+          <button onClick={() => setIsOpenModalEditUser(true)}>
+            Editar Perfil
+          </button>
           <a href="#">Editar endereço</a>
           <a href="#">Meus Anúncios</a>
           <a href="#">Sair</a>
         </nav>
       )}
 
-      {!token ? (
+      {!user ? (
         <div>
           <button>Fazer Login</button>
           <Button
@@ -41,7 +40,7 @@ const DropDownMenu = () => {
         </div>
       ) : (
         <MobileLoggedUser>
-          <img src={user.img} alt="" />
+          <img src="https://i.stack.imgur.com/YaL3s.jpg" alt="" />
           <h2>{user.name}</h2>
         </MobileLoggedUser>
       )}
