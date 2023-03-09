@@ -1,4 +1,4 @@
-import { FormStyled } from "../style";
+import { FormStyled } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -18,7 +18,7 @@ const FormEditAddress = () => {
     number: yup.string().required("Campo obrigatório"),
     complement: yup.string().required("Campo obrigatório"),
   });
-  const { setIsOpenModalEditUser, isOpenModalEditUser } =
+  const { setIsOpenModalEditAddress, isOpenModalEditAddress } =
     useContext(AuthContext);
   const {
     register,
@@ -33,43 +33,46 @@ const FormEditAddress = () => {
   return (
     <>
       <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
-        <h1 className="heading-7-500 title">Editar perfil</h1>
-        <h2 className="body-2-500 subTitle">Informações pessoais</h2>
+        <h1 className="heading-7-500 title">Editar Endereço</h1>
+        <h2 className="body-2-500 subTitle">Informações de endereço</h2>
 
         <Input
-          label="Nome"
-          name="name"
-          placeholder="Digitar nome"
+          label="CEP"
+          name="cep"
+          placeholder="00000-000"
           register={register}
         />
         <div className="DisplayFlex">
           <Input
-            label="Email"
-            name="email"
-            placeholder="exemplo@gmail.com"
+            label="Estado"
+            name="state"
+            placeholder="Paraná"
             register={register}
-            // type={"number"}
           />
           <Input
-            label="CPF"
-            name="cpf"
-            placeholder="000.000.000-00"
+            label="Cidade"
+            name="city"
+            placeholder="Curitiba"
+            register={register}
+          />
+          <Input
+            label="Rua"
+            name="street"
+            placeholder="Rua do paraná"
+            register={register}
+          />
+          <Input
+            label="Número"
+            name="number"
+            placeholder="400"
             register={register}
             type={"number"}
           />
           <Input
-            label="Celular"
-            name="phone"
-            placeholder="(00)90000-0000"
+            label="Complemento"
+            name="complement"
+            placeholder="Apartamento 307"
             register={register}
-            type={"number"}
-          />
-          <Input
-            label="Data de Nascimento"
-            name="date_of_birth"
-            placeholder="00/00/00"
-            register={register}
-            type={"number"}
           />
         </div>
         <LabelStyled className="body-2-500">
@@ -89,7 +92,7 @@ const FormEditAddress = () => {
             colorHover="var(--white-fixed)"
             width="larger"
             onClick={() => {
-              setIsOpenModalEditUser(false);
+              setIsOpenModalEditAddress(false);
             }}
           >
             Cancelar
@@ -109,4 +112,4 @@ const FormEditAddress = () => {
   );
 };
 
-export default FormEditProfile;
+export default FormEditAddress;

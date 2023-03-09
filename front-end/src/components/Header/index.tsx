@@ -17,9 +17,9 @@ const AppHeader = () => {
       <MainHeaderContent>
         <img src={logo} alt="Motors Shop Logo" onClick={() => navigate("/")} />
         <nav>
-          <a href="#">Carros</a>
-          <a href="#">Motos</a>
-          <a href="#">Leilão</a>
+          <button className="buttons">Carros</button>
+          <button className="buttons">Motos</button>
+          <button className="buttons">Leilão</button>
         </nav>
       </MainHeaderContent>
       {user ? (
@@ -33,7 +33,9 @@ const AppHeader = () => {
         </SideHeaderContent>
       ) : (
         <SideHeaderContent>
-          <a href="login">Fazer Login</a>
+          <button className="buttons" onClick={() => navigate("/login")}>
+            Fazer Login
+          </button>
           <Button
             width="big"
             color="var(--color-grey-2)"

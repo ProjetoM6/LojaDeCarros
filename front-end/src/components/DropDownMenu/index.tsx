@@ -5,29 +5,52 @@ import Button from "../Button/style";
 import { AuthContext } from "../../context/AuthContext";
 
 const DropDownMenu = () => {
-  const { user, navigate, setIsOpenModalEditUser } = useContext(AuthContext);
+  const {
+    user,
+    navigate,
+    setIsOpenModalEditUser,
+    setIsOpenModalEditAddress,
+    isOpenModalEditAddress,
+    isOpenModalEditUser,
+  } = useContext(AuthContext);
+
+  function logOut() {
+    window.localStorage.clear();
+    navigate("/login");
+  }
 
   return (
     <DropDownMenuContainer>
       <nav className="mobileButtons">
-        <a href="#">Carros</a>
-        <a href="#">Motos</a>
-        <a href="#">Leilão</a>
+        <button className="buttons">Carros</button>
+        <button className="buttons">Motos</button>
+        <button className="buttons">Leilão</button>
       </nav>
       {user && (
         <nav>
-          <button onClick={() => setIsOpenModalEditUser(true)}>
+          <button
+            className="buttons"
+            onClick={() => setIsOpenModalEditUser(!isOpenModalEditUser)}
+          >
             Editar Perfil
           </button>
-          <a href="#">Editar endereço</a>
-          <a href="#">Meus Anúncios</a>
-          <a href="#">Sair</a>
+          <button
+            className="buttons"
+            onClick={() => setIsOpenModalEditAddress(!isOpenModalEditAddress)}
+          >
+            Editar endereço
+          </button>
+          {user.type != "buyer" && <a href="#">Meus Anúncios</a>}
+
+          <button className="buttons" onClick={logOut}>
+            Sair
+          </button>
         </nav>
       )}
 
       {!user ? (
         <div>
-          <button>Fazer Login</button>
+          <button className="buttons">Fazer Login</button>
           <Button
             width="352px"
             color="var(--color-grey-2)"
