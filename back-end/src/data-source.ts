@@ -8,6 +8,7 @@ import { createTables1677957463817 } from "./migrations/1677957463817-createTabl
 import { createTables1677958226033 } from "./migrations/1677958226033-createTables";
 import { deleteOnCascade1677964141047 } from "./migrations/1677964141047-deleteOnCascade";
 import { addImgGalery1677985334288 } from "./migrations/1677985334288-addImgGalery";
+import { addColumnOwnerAnnouncement1678227477665 } from "./migrations/1678227477665-addColumnOwnerAnnouncement";
 import { ImageGalery } from "./entities/image_gallery";
 
 const AppDataSource = new DataSource(
@@ -37,6 +38,7 @@ const AppDataSource = new DataSource(
           createTables1677958226033,
           deleteOnCascade1677964141047,
           addImgGalery1677985334288,
+          addColumnOwnerAnnouncement1678227477665,
         ],
       }
 );
