@@ -43,6 +43,15 @@ export class Announcement {
   })
   user: User;
 
+  @Column()
+  owner_id: string;
+
+  @Column()
+  owner_name: string;
+
+  @Column()
+  owner_description: string;
+
   @OneToMany(() => ImageGalery, (imgGalery) => imgGalery.announcement, {
     eager: true,
     onDelete: "CASCADE",
