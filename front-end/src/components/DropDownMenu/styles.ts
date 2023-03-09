@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const DropDownMenuContainer = styled.div`
   width: 100%;
-  height: 445px;
+  /* height: 445px; */
   background-color: white;
   position: absolute;
   top: 5.2rem;
   border-radius: 4px;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  z-index: 99;
 
   nav {
     display: flex;
@@ -24,7 +25,7 @@ export const DropDownMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    a {
+    .buttons {
       margin-left: 16px;
       padding-top: 32px;
     }
@@ -54,7 +55,6 @@ export const MobileLoggedUser = styled.aside`
   flex-direction: row;
   justify-content: center;
   gap: 15px;
-
   img {
     border-radius: 100%;
     width: 40px;

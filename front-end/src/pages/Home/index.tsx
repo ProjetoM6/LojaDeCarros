@@ -9,10 +9,18 @@ import { AuthContext } from "../../context/AuthContext";
 import { IAnnouncement } from "../../context/interfaces";
 import api from "../../services";
 import ContainerProfilePage from "./style";
+import FormEditProfile from "../../components/Forms/EditUserForm/index";
+import FormEditAddress from "../../components/Forms/EditAddress/index";
 
 const Homepage = () => {
   const [announcements, setAnnouncements] = useState<IAnnouncement[]>([]);
-  const { user } = useContext(AuthContext);
+  const {
+    user,
+    isOpenModalEditUser,
+    setIsOpenModalEditUser,
+    setIsOpenModalEditAddress,
+    isOpenModalEditAddress,
+  } = useContext(AuthContext);
 
   useEffect(() => {
     const requestAllAnnouncement = async () => {
@@ -28,6 +36,23 @@ const Homepage = () => {
 
   return (
     <ContainerProfilePage>
+      {isOpenModalEditUser && (
+        <Modal
+          isOpenModal={isOpenModalEditUser}
+          setIsOpenModal={setIsOpenModalEditUser}
+        >
+          <FormEditProfile />
+        </Modal>
+      )}
+
+      {isOpenModalEditAddress && (
+        <Modal
+          isOpenModal={isOpenModalEditAddress}
+          setIsOpenModal={setIsOpenModalEditAddress}
+        >
+          <FormEditAddress />
+        </Modal>
+      )}
       <AppHeader />
       <main>
         <section className="azul">

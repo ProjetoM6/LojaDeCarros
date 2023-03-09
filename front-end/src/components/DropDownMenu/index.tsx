@@ -1,34 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DropDownMenuContainer, MobileLoggedUser } from "./styles";
 import Button from "../Button/style";
 
-const DropDownMenu = () => {
-  const [isMobile, setMobile] = useState(false);
+import { AuthContext } from "../../context/AuthContext";
 
-  const user = {
-    name: "Raimundo",
-    img: "https://i.stack.imgur.com/YaL3s.jpg",
-  };
-  const token = true;
+const DropDownMenu = () => {
+  const {
+    user,
+    navigate,
+    setIsOpenModalEditUser,
+    setIsOpenModalEditAddress,
+    isOpenModalEditAddress,
+    isOpenModalEditUser,
+  } = useContext(AuthContext);
+
+  function logOut() {
+    window.localStorage.clear();
+    navigate("/login");
+  }
+
   return (
     <DropDownMenuContainer>
       <nav className="mobileButtons">
-        <a href="#">Carros</a>
-        <a href="#">Motos</a>
-        <a href="#">Leilão</a>
+        <button className="buttons">Carros</button>
+        <button className="buttons">Motos</button>
+        <button className="buttons">Leilão</button>
       </nav>
-      {token && (
+      {user && (
         <nav>
-          <a href="#">Editar Perfil</a>
-          <a href="#">Editar endereço</a>
-          <a href="#">Meus Anúncios</a>
-          <a href="#">Sair</a>
+          <button
+            className="buttons"
+            onClick={() => setIsOpenModalEditUser(!isOpenModalEditUser)}
+          >
+            Editar Perfil
+          </button>
+          <button
+            className="buttons"
+            onClick={() => setIsOpenModalEditAddress(!isOpenModalEditAddress)}
+          >
+            Editar endereço
+          </button>
+          {user.type != "buyer" && <a href="#">Meus Anúncios</a>}
+
+          <button className="buttons" onClick={logOut}>
+            Sair
+          </button>
         </nav>
       )}
 
-      {!token ? (
+      {!user ? (
         <div>
-          <button>Fazer Login</button>
+          <button className="buttons">Fazer Login</button>
           <Button
             width="352px"
             color="var(--color-grey-2)"
@@ -41,7 +63,7 @@ const DropDownMenu = () => {
         </div>
       ) : (
         <MobileLoggedUser>
-          <img src={user.img} alt="" />
+          <img src="https://i.stack.imgur.com/YaL3s.jpg" alt="" />
           <h2>{user.name}</h2>
         </MobileLoggedUser>
       )}

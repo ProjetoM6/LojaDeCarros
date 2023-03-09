@@ -7,6 +7,10 @@ const ContainerProfilePage = styled.div`
   }
 
   .azul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background-color: var(--color-brand-1);
     margin: 0 auto;
@@ -17,9 +21,6 @@ const ContainerProfilePage = styled.div`
     flex-direction: column;
     align-items: center;
     width: 55%;
-    position: absolute;
-    left: 300px;
-    top: 60px;
 
     h2 {
       font-family: "Lexend";
@@ -63,16 +64,9 @@ const ContainerProfilePage = styled.div`
   }
 
   @media (max-width: 768px) {
-    .azul {
-      margin: 0;
-    }
 
     .container {
       width: 85%;
-      position: absolute;
-      left: 30px;
-      top: 30px;
-      margin: 0 auto;
 
       h2 {
         font-size: 32px;

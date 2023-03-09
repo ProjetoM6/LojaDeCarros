@@ -17,14 +17,25 @@ const AppHeader = () => {
       <MainHeaderContent>
         <img src={logo} alt="Motors Shop Logo" onClick={() => navigate("/")} />
         <nav>
-          <a href="#">Carros</a>
-          <a href="#">Motos</a>
-          <a href="#">Leilão</a>
+          <button className="buttons">Carros</button>
+          <button className="buttons">Motos</button>
+          <button className="buttons">Leilão</button>
         </nav>
       </MainHeaderContent>
       {user ? (
+        <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
+          <LoggedUser>
+            <img src={""} alt="" />
+            <h2>{user!.name}</h2>
+          </LoggedUser>
+
+          <GiHamburgerMenu className="mobileMenuIcon" size={30} />
+        </SideHeaderContent>
+      ) : (
         <SideHeaderContent>
-          <a href="login">Fazer Login</a>
+          <button className="buttons" onClick={() => navigate("/login")}>
+            Fazer Login
+          </button>
           <Button
             width="big"
             color="var(--color-grey-2)"
@@ -39,19 +50,6 @@ const AppHeader = () => {
             className="mobileMenuIcon"
             size={30}
             onClick={() => setOpenDropDown((prev) => !prev)}
-          />
-        </SideHeaderContent>
-      ) : (
-        <SideHeaderContent onClick={() => setOpenDropDown((prev) => !prev)}>
-          <LoggedUser>
-            <img src={""} alt="" />
-            <h2>{user}</h2>
-          </LoggedUser>
-
-          <GiHamburgerMenu
-            className="mobileMenuIcon"
-            size={30}
-            
           />
         </SideHeaderContent>
       )}

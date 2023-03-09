@@ -25,6 +25,8 @@ const resetUserPasswordService = async(token: string, newPassword: string): Prom
         token_reset_password: "",
         password: hashedPassword
     })
+
+
 }
 
 export default resetUserPasswordService

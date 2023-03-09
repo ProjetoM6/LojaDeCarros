@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a {
+  .buttons {
     text-decoration: none;
     color: var(--color-grey-2);
     font-family: "Inter";
@@ -16,6 +16,8 @@ export const HeaderContainer = styled.header`
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
+    border: none;
+    background-color: transparent;
   }
 `;
 
@@ -25,9 +27,9 @@ export const MainHeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   img {
     margin-left: 60px;
+    cursor: pointer;
   }
   nav {
     display: flex;
@@ -48,11 +50,22 @@ export const SideHeaderContent = styled.div`
   gap: 44px;
   align-items: center;
   justify-content: center;
-
+  a {
+    display: none;
+  }
+  button {
+    display: none;
+  }
   @media (min-width: 650px) {
     border-left: 2px solid var(--color-grey-6);
     .mobileMenuIcon {
       display: none;
+    }
+    a {
+      display: block;
+    }
+    button {
+      display: block;
     }
   }
 `;

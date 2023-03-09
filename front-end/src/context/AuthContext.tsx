@@ -15,6 +15,8 @@ import api from "../services";
 interface IAuthContext {
   requestLogin: (data: FieldValues) => Promise<void>;
   requestRegister: (data: FieldValues) => Promise<void>;
+  requestSendResetPassword: (data: FieldValues) => Promise<void>;
+  requestResetPassword: (data: FieldValues) => Promise<void>;
   requestCreateAnnouncement: (data: FieldValues) => Promise<void>;
   requestUpdateAnnouncement: (data: FieldValues) => Promise<void>;
   requestDeleteAnnouncement: (id: string) => Promise<void>;
@@ -36,6 +38,10 @@ interface IAuthContext {
   setProdutModal: Dispatch<SetStateAction<IAnnouncement | null>>;
   announciantId: string;
   setAnnounciantId: Dispatch<SetStateAction<string>>;
+  isOpenModalEditUser: boolean;
+  isOpenModalEditAddress: boolean;
+  setIsOpenModalEditUser: Dispatch<SetStateAction<boolean>>;
+  setIsOpenModalEditAddress: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IAuthProvider {
@@ -48,6 +54,10 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const [announcementUser, setAnnouncementUser] = useState<IAnnouncement[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
+  const [isOpenModalEditUser, setIsOpenModalEditUser] =
+    useState<boolean>(false);
+  const [isOpenModalEditAddress, setIsOpenModalEditAddress] =
+    useState<boolean>(false);
   const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false);
   const [isOpenModalDelete, setIsOpenModalDelete] = useState<boolean>(false);
   const [productModal, setProdutModal] = useState<IAnnouncement | null>(null);
@@ -140,6 +150,32 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
+  const requestSendResetPassword = async (data: FieldValues): Promise<void> => {
+    try {
+      const res = await api.post("/user/sendResetPassword", data);
+      navigate("/resetPassword/");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
+  const requestResetPassword = async (data: FieldValues): Promise<void> => {
+    try {
+      const res = await api.patch("/user/resetPassword/newPassword", data);
+      navigate("/login");
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
   const initialLetters = (names: string) => {
     let letters: string = "";
     names.split(" ").forEach((name) => (letters += name[0]));
@@ -177,6 +213,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         requestCreateAnnouncement,
         requestUpdateAnnouncement,
         requestDeleteAnnouncement,
+        requestSendResetPassword,
+        requestResetPassword,
         isOpenModalCreate,
         setIsOpenModalCreate,
         isOpenModalEdit,
@@ -190,6 +228,10 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         initialLetters,
         announciantId,
         setAnnounciantId,
+        isOpenModalEditUser,
+        setIsOpenModalEditUser,
+        isOpenModalEditAddress,
+        setIsOpenModalEditAddress,
       }}
     >
       {children}
