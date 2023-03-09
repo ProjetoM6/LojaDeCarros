@@ -5,7 +5,8 @@ import { AuthContext } from "../../context/AuthContext";
 import ContainerViewAdPage, { AsideAdViewPage } from "./style";
 
 const ViewAdPage = () => {
-  const { announcementView, initialLetters } = useContext(AuthContext);
+  const { announcementView, initialLetters, setAnnounciantId, navigate } =
+    useContext(AuthContext);
   const containerSectionAdRef = useRef<HTMLElement>(null);
   const containerAzul = useRef<HTMLDivElement>(null);
   const [marginTop, setMarginTop] = useState<Number>(0);
@@ -83,21 +84,20 @@ const ViewAdPage = () => {
           <div className="containerAdvertiser">
             <div className="divInitials">
               <p className="pInitials">
-                {initialLetters(
-                  announcementView?.ownerName || "Nome do anunciante"
-                )}
+                {initialLetters(announcementView!.owner_name)}
               </p>
             </div>
-            <h2>{announcementView?.ownerName || "Nome do anunciante"}</h2>
-            <p>
-              {announcementView?.ownerDescription ||
-                "Descrição do anunciante indisponivel"}
-            </p>
+            <h2>{announcementView?.owner_name}</h2>
+            <p>{announcementView?.owner_description}</p>
             <Button
               background="var(--color-grey-0)"
               color="var(--white-fixed)"
               hover="var(--color-grey-1)"
               width="larger"
+              onClick={() => {
+                navigate("/annunciant-profile");
+                setAnnounciantId(announcementView!.owner_id);
+              }}
             >
               Ver Todos anuncios
             </Button>
