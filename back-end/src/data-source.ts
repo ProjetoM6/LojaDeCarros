@@ -4,8 +4,7 @@ import { User } from "./entities/user.entity";
 import { Address } from "./entities/adress.entity";
 import { Announcement } from "./entities/announcement.entity";
 import { ImageGalery } from "./entities/image_gallery";
-import { initialMigration1678368173831 } from "./migrations/1678368173831-initialMigration";
-import { createTables1678368306697 } from "./migrations/1678368306697-createTables";
+
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
     ? {
@@ -27,7 +26,7 @@ const AppDataSource = new DataSource(
         //colocar as entities importadas aqui
         entities: [User, Announcement, Address, ImageGalery],
         //colocar o arquivo gerado pós migration e depois dar run
-        migrations: [initialMigration1678368173831, createTables1678368306697],
+        migrations: [],
       }
 );
 

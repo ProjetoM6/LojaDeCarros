@@ -15,6 +15,12 @@ const announcementCreateServices = async (
   if (!user) {
     throw new AppError(404, "user not found");
   }
+  const userProps = {
+    owner_id: user.id,
+    owner_description: user.description,
+    owner_name: user.name,
+  };
+  announcement = { ...announcement, ...userProps };
   const announcementCreate = announcementRepository.create(announcement);
   announcementCreate.user = user;
   await announcementRepository.save(announcementCreate);
