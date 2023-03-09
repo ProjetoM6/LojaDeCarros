@@ -34,6 +34,8 @@ interface IAuthContext {
   setIsOpenModalDelete: Dispatch<SetStateAction<boolean>>;
   productModal: IAnnouncement | null;
   setProdutModal: Dispatch<SetStateAction<IAnnouncement | null>>;
+  announciantId: string;
+  setAnnounciantId: Dispatch<SetStateAction<string>>;
 }
 
 interface IAuthProvider {
@@ -51,6 +53,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const [productModal, setProdutModal] = useState<IAnnouncement | null>(null);
   const [announcementView, setAnnouncementView] =
     useState<IAnnouncement | null>(null);
+  const [announciantId, setAnnounciantId] = useState<string>("");
   const navigate = useNavigate();
 
   const requestLogin = async (data: FieldValues): Promise<void> => {
@@ -140,7 +143,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const initialLetters = (names: string) => {
     let letters: string = "";
     names.split(" ").forEach((name) => (letters += name[0]));
-    return letters;
+    return letters.toLocaleUpperCase();
   };
 
   useEffect(() => {
@@ -185,6 +188,8 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         announcementView,
         setAnnouncementView,
         initialLetters,
+        announciantId,
+        setAnnounciantId,
       }}
     >
       {children}

@@ -24,8 +24,7 @@ export interface IAnnouncement {
   createdAt: string | Date;
   isActive: true;
   description: string | null;
-  ownerId: string;
-  ownerName: string;
-  ownnerImg: string;
-  ownerDescription: string;
+  owner_id: string;
+  owner_name: string;
+  owner_description: string;
 }
