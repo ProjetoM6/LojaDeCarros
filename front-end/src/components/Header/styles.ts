@@ -27,6 +27,7 @@ export const MainHeaderContent = styled.div`
   justify-content: space-between;
   img {
     margin-left: 60px;
+    cursor: pointer;
   }
   nav {
     display: flex;
