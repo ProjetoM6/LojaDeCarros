@@ -4,19 +4,21 @@ const CarAuctionStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 700px;
+  width: 100%;
   min-width: 300px;
-  max-width: 600px;
+  max-width: 45vw;
   min-height: 400px;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);
   border-radius: 4px 4px 0px 0px;
   position: relative;
   font-family: "Lexend";
+  overflow-y: hidden;
 
   .bodyAuction {
     min-height: 300px;
-    padding: 0 35px;
-    top: 100px;
+    padding: 0 50px;
+    top: 90px;
+    right: 30px;
     position: absolute;
     .imgCarAuction {
       width: 100%;
@@ -28,7 +30,7 @@ const CarAuctionStyled = styled.div`
       align-items: center;
       width: 90%;
       position: absolute;
-      bottom: 75px;
+      bottom: 80px;
     }
 
     .ContainerFlexColumn {
@@ -36,7 +38,8 @@ const CarAuctionStyled = styled.div`
       flex-direction: column;
       gap: 20px;
       position: absolute;
-      top: 0px;
+      top: 10px;
+      left: 40px;
       min-height: 50%;
       h2 {
         color: var(--white-fixed);
@@ -107,6 +110,10 @@ const CarAuctionStyled = styled.div`
     .bodyAuction{
       position: relative;
       right: 20px;
+    }
+
+    .ContainerFlexColumn{
+
     }
   }
 
