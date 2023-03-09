@@ -5,14 +5,8 @@ import Button from "../Button/style";
 import { AuthContext } from "../../context/AuthContext";
 
 const DropDownMenu = () => {
-  const [isMobile, setMobile] = useState(false);
-  const { user, navigate } = useContext(AuthContext);
+  const { user, navigate, setIsOpenModalEditUser } = useContext(AuthContext);
 
-  const user1 = {
-    name: "Raimundo",
-    img: "https://i.stack.imgur.com/YaL3s.jpg",
-  };
-  const token = true;
   return (
     <DropDownMenuContainer>
       <nav className="mobileButtons">
@@ -22,7 +16,9 @@ const DropDownMenu = () => {
       </nav>
       {user && (
         <nav>
-          <a href="#">Editar Perfil</a>
+          <button onClick={() => setIsOpenModalEditUser(true)}>
+            Editar Perfil
+          </button>
           <a href="#">Editar endereço</a>
           <a href="#">Meus Anúncios</a>
           <a href="#">Sair</a>

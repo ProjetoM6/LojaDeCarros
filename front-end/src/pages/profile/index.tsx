@@ -11,7 +11,7 @@ import AuctionShowcase from "../../components/AuctionShowcase";
 import { AuthContext } from "../../context/AuthContext";
 import FormEditAnnouncement from "../../components/Forms/EditAnnouncement";
 import FormDeleteAnnouncement from "../../components/Forms/DeleteAnnouncement";
-
+import FormEditProfile from "../../components/Forms/EditUserForm";
 const ProfilePage = () => {
   const {
     user,
@@ -25,6 +25,8 @@ const ProfilePage = () => {
     isOpenModalDelete,
     setIsOpenModalDelete,
     initialLetters,
+    isOpenModalEditUser,
+    setIsOpenModalEditUser,
   } = useContext(AuthContext);
 
   console.log(isOpenModalCreate, isOpenModalEdit);
@@ -52,6 +54,14 @@ const ProfilePage = () => {
           setIsOpenModal={setIsOpenModalEdit}
         >
           <FormEditAnnouncement />
+        </Modal>
+      )}
+      {isOpenModalEditUser && (
+        <Modal
+          isOpenModal={isOpenModalEditUser}
+          setIsOpenModal={setIsOpenModalEditUser}
+        >
+          <FormEditProfile />
         </Modal>
       )}
       {isOpenModalDelete && (

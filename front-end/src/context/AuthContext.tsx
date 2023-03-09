@@ -36,6 +36,10 @@ interface IAuthContext {
   setIsOpenModalDelete: Dispatch<SetStateAction<boolean>>;
   productModal: IAnnouncement | null;
   setProdutModal: Dispatch<SetStateAction<IAnnouncement | null>>;
+  isOpenModalEditUser: boolean;
+  isOpenModalEditAddress: boolean;
+  setIsOpenModalEditUser: Dispatch<SetStateAction<boolean>>;
+  setIsOpenModalEditAddress: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IAuthProvider {
@@ -48,6 +52,10 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
   const [announcementUser, setAnnouncementUser] = useState<IAnnouncement[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean>(false);
+  const [isOpenModalEditUser, setIsOpenModalEditUser] =
+    useState<boolean>(false);
+  const [isOpenModalEditAddress, setIsOpenModalEditAddress] =
+    useState<boolean>(false);
   const [isOpenModalEdit, setIsOpenModalEdit] = useState<boolean>(false);
   const [isOpenModalDelete, setIsOpenModalDelete] = useState<boolean>(false);
   const [productModal, setProdutModal] = useState<IAnnouncement | null>(null);
@@ -139,11 +147,10 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     }
   };
 
-
   const requestSendResetPassword = async (data: FieldValues): Promise<void> => {
     try {
       const res = await api.post("/user/sendResetPassword", data);
-      navigate("/resetPassword/")
+      navigate("/resetPassword/");
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.error(error.response?.data ?? "unknow error");
@@ -164,6 +171,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         console.error(error);
       }
     }
+  };
 
   const initialLetters = (names: string) => {
     let letters: string = "";
@@ -215,6 +223,10 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         announcementView,
         setAnnouncementView,
         initialLetters,
+        isOpenModalEditUser,
+        setIsOpenModalEditUser,
+        isOpenModalEditAddress,
+        setIsOpenModalEditAddress,
       }}
     >
       {children}
