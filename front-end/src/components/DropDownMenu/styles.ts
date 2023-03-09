@@ -25,7 +25,7 @@ export const DropDownMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    a {
+    .buttons {
       margin-left: 16px;
       padding-top: 32px;
     }

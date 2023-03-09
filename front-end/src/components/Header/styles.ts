@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a {
+  .buttons {
     text-decoration: none;
     color: var(--color-grey-2);
     font-family: "Inter";
@@ -16,6 +16,8 @@ export const HeaderContainer = styled.header`
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
+    border: none;
+    background-color: transparent;
   }
 `;
 

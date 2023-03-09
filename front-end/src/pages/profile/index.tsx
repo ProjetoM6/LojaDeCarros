@@ -12,6 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 import FormEditAnnouncement from "../../components/Forms/EditAnnouncement";
 import FormDeleteAnnouncement from "../../components/Forms/DeleteAnnouncement";
 import FormEditProfile from "../../components/Forms/EditUserForm";
+import FormEditAddress from "../../components/Forms/EditAddress";
 const ProfilePage = () => {
   const {
     user,
@@ -27,9 +28,9 @@ const ProfilePage = () => {
     initialLetters,
     isOpenModalEditUser,
     setIsOpenModalEditUser,
+    setIsOpenModalEditAddress,
+    isOpenModalEditAddress,
   } = useContext(AuthContext);
-
-  console.log(isOpenModalCreate, isOpenModalEdit);
 
   if (isLoading) return <h1 className="loading">Carregando ...</h1>;
 
@@ -47,7 +48,6 @@ const ProfilePage = () => {
           <FormCreateAnnouncement />
         </Modal>
       )}
-
       {isOpenModalEdit && (
         <Modal
           isOpenModal={isOpenModalEdit}
@@ -64,6 +64,15 @@ const ProfilePage = () => {
           <FormEditProfile />
         </Modal>
       )}
+
+      {isOpenModalEditAddress && (
+        <Modal
+          isOpenModal={isOpenModalEditAddress}
+          setIsOpenModal={setIsOpenModalEditAddress}
+        >
+          <FormEditAddress />
+        </Modal>
+      )}
       {isOpenModalDelete && (
         <Modal
           isOpenModal={isOpenModalDelete}
@@ -72,7 +81,6 @@ const ProfilePage = () => {
           <FormDeleteAnnouncement />
         </Modal>
       )}
-
       <AppHeader />
       <main>
         <div className="azul">
