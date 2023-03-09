@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import ProfileViewUser from "../pages/ProfileViewUser";
+import AnnunciantProfile from "../pages/AnnunciantProfile";
 
 import ProfilePage from "../pages/profile";
 import ViewAdPage from "../pages/viewAd";
@@ -15,7 +15,7 @@ const RoutesMain = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/saleProfile" element={<ProfileViewUser />} />
+      <Route path="/annunciant-profile" element={<AnnunciantProfile />} />
       <Route path="/view-ad" element={<ViewAdPage />} />
     </Routes>
   );
