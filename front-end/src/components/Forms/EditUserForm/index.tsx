@@ -11,14 +11,14 @@ import { AuthContext } from "../../../context/AuthContext";
 
 const FormEditProfile = () => {
   const formSchema = yup.object().shape({
-    name: yup.string().required("Escolha uma opção"),
-    email: yup.string().required("Campo obrigatório"),
-    cpf: yup.string().required("Campo obrigatório"),
-    phone: yup.string().required("Campo obrigatório"),
-    date_of_birth: yup.string().required("Campo obrigatório"),
-    description: yup.string().required("Campo obrigatório"),
+    name: yup.string(),
+    email: yup.string(),
+    cpf: yup.string(),
+    phone: yup.string(),
+    date_of_birth: yup.string(),
+    description: yup.string(),
   });
-  const { setIsOpenModalEditUser, isOpenModalEditUser } =
+  const { setIsOpenModalEditUser, requestEditProfile } =
     useContext(AuthContext);
   const {
     register,
@@ -28,11 +28,11 @@ const FormEditProfile = () => {
     resolver: yupResolver(formSchema),
   });
 
-  //   const onSubmitFunction = (data) => console.log(data);
+  const onSubmitFunction = (data: any) => console.log(data);
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit((data) => console.log(data))}>
+      <FormStyled onSubmit={handleSubmit(requestEditProfile)}>
         <h1 className="heading-7-500 title">Editar perfil</h1>
         <h2 className="body-2-500 subTitle">Informações pessoais</h2>
 

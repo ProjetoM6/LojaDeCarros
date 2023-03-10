@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source";
 import { User } from "../../entities/user.entity";
 
 import { hash } from "bcrypt";
-import jwt from "jsonwebtoken";
+
 import { AppError } from "../../errors/appError";
 
 const updateUserService = async (
@@ -13,11 +13,8 @@ const updateUserService = async (
   cpf: string,
   date_of_birth: string,
   type: string,
-  id: string,
-  token: any
+  id: string
 ) => {
-  const userInfo: any = jwt.decode(token);
-
   const userRepository = AppDataSource.getRepository(User);
   const findUser = await userRepository.findOneBy({
     id,
