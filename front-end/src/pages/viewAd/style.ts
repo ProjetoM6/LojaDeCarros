@@ -10,6 +10,7 @@ const ContainerViewAdPage = styled.div<IContainerViewPageProps>`
     margin-bottom: 18vh;
     position: relative;
     background: var(--color-grey-8);
+    font-family: "Lexend";
     .containerSectionAd {
       display: flex;
       flex-direction: column;

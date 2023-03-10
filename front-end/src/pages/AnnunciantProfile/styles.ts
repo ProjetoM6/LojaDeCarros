@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const ProfileViewUserContainer = styled.main`
+
+  font-family: "Lexend";
   background-color: var(--color-grey-8);
   .azul {
     width: 100%;
