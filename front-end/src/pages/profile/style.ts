@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 const ContainerProfilePage = styled.div`
+
+
   background-color: var(--color-grey-8);
   main {
     margin-bottom: 18vh;
+    font-family: "Lexend";
   }
 
   .azul {

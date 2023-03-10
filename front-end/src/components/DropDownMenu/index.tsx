@@ -40,7 +40,7 @@ const DropDownMenu = () => {
           >
             Editar endereço
           </button>
-          {user.type != "buyer" && <a href="#">Meus Anúncios</a>}
+          {user.type != "buyer" && <button className="buttons" onClick={()=> (navigate("/profile"))}> Meus Anúncios </button>}
 
           <button className="buttons" onClick={logOut}>
             Sair

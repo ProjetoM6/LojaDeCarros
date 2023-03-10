@@ -18,6 +18,11 @@ export const HeaderContainer = styled.header`
     line-height: 28px;
     border: none;
     background-color: transparent;
+    cursor: pointer;
+  }
+
+  .buttons:hover{
+    text-decoration: underline;
   }
 `;
 
