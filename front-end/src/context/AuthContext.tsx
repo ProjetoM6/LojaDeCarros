@@ -40,6 +40,7 @@ interface IAuthContext {
   isOpenModalEditAddress: boolean;
   setIsOpenModalEditUser: Dispatch<SetStateAction<boolean>>;
   setIsOpenModalEditAddress: Dispatch<SetStateAction<boolean>>;
+  requestEditProfile: any;
 }
 
 interface IAuthProvider {
@@ -128,6 +129,17 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
       setIsOpenModalEdit(false);
     } catch (error) {
       console.error(error);
+    }
+  };
+  const requestEditProfile = async (data: any) => {
+    try {
+      const res = await api.patch(`/user/${user?.id}`, data);
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        console.error(error.response?.data ?? "unknow error");
+      } else {
+        console.error(error);
+      }
     }
   };
 
@@ -227,6 +239,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
         setIsOpenModalEditUser,
         isOpenModalEditAddress,
         setIsOpenModalEditAddress,
+        requestEditProfile,
       }}
     >
       {children}
